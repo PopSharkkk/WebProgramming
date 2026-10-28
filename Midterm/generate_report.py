@@ -257,7 +257,7 @@ def create_report():
         ("Interactive Diagrams", "https://midterm-webpro.wasmer.app/database-diagrams.html"),
         ("Automated Test Suite", "12 Feature Tests, 47 Assertions — 100% Pass Rate"),
         ("Submission Date", "Wednesday, 28 October 2026"),
-        ("Authors & Contribution", "1. Rianti Dewi (NRP: 5025231001) — 50%\n2. Darminto Utomo (NRP: 5025231002) — 50%")
+        ("Authors & Contribution", "1. Rinaltra Nabasa S (NRP: 5025251024) — 33.33%\n2. Fakhrian Elanta (NRP: 5025251019) — 33.33%\n3. Haidar Abiyyu at Taqy (NRP: 5025521121) — 33.33%")
     ]
 
     for row_idx, (label, val) in enumerate(meta_data):
@@ -534,6 +534,31 @@ def create_report():
         "5. bookmarks.user_id -> users.id and bookmarks.job_id -> job_postings.id (ON DELETE CASCADE): "
     )
 
+    add_h2("2.4 Production Database Seeder & Demonstration Dataset (100 Job Gigs)")
+    add_p(
+        "To test search scalability, pagination, multi-criteria filtering, and realistic user flows, the application includes a production-grade database seeder (`database/seeders/DatabaseSeeder.php`). The seeder populates five interconnected relational datasets:"
+    )
+    add_bullet(
+        "10 distinct campus employers and student venture partners across tech startups, design studios, tutoring centers, and content agencies.",
+        "1. 10 Verified Employers: "
+    )
+    add_bullet(
+        "100 realistic student freelance vacancies spanning Web Development, UI/UX Design, Python Data Pipelines, DevOps, Mobile Apps, Peer Tutoring, Translation, and Social Media Marketing. Every listing features rich markdown descriptions, explicit skill requirements, stipends ranging from $50 to $1,800, and realistic application deadlines.",
+        "2. 100 Active Freelance Gigs: "
+    )
+    add_bullet(
+        "5 student freelancers with varied profiles and portfolios for multi-role testing.",
+        "3. 5 Student Freelancers: "
+    )
+    add_bullet(
+        "21 realistic candidate pitches with requested stipend rates, completion timelines, and recruitment stages (Pending, Reviewed, Accepted, Rejected).",
+        "4. 21 Candidate Applications: "
+    )
+    add_bullet(
+        "26 curated watchlist records across candidate accounts demonstrating instant saving and filtering.",
+        "5. 26 Saved Bookmarks: "
+    )
+
     # -------------------------------------------------------------
     # SECTION 3: IMPLEMENTATION & MVC ARCHITECTURE (50 POINTS)
     # -------------------------------------------------------------
@@ -801,10 +826,10 @@ def create_report():
     # -------------------------------------------------------------
     add_h1("6. Work Percentage and Group Contributions")
     add_p(
-        "The project workload was divided equally between both team members (50% / 50%):"
+        "The project workload was divided equally among all three team members (33.33% / 33.33% / 33.33% — 100/3% each):"
     )
 
-    contrib_tbl = doc.add_table(rows=3, cols=3)
+    contrib_tbl = doc.add_table(rows=4, cols=3)
     contrib_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     set_table_borders(contrib_tbl, color="CBD5E1", sz="4")
 
@@ -825,21 +850,26 @@ def create_report():
         r.font.color.rgb = RGBColor(255, 255, 255)
 
     contrib_data = [
-        ("Rianti Dewi\nNRP: 5025231001", "50%",
-         "• Database migrations & Eloquent models (users, employers, job_postings)\n"
-         "• Dual-role authentication & session onboarding (POST /register, /login)\n"
-         "• Feature 1: Multi-criteria job search, category filters & budget range query scope\n"
-         "• Feature 2: Employer job vacancy CRUD & active/closed lifecycle toggle\n"
-         "• Feature 3: Candidate application submission & multi-part PDF upload pipeline\n"
-         "• Feature 8: Employer company profile CRUD, bio, social links, & logo upload"),
+        ("Rinaltra Nabasa S\nNRP: 5025251024", "33.33%",
+         "• Web design and frontend engineering architecture\n"
+         "• Responsive Blade UI system across desktop (1440px), tablet (820px), and mobile (375px)\n"
+         "• Interactive Three.js WebGL 3D Earth hero canvas & visual aesthetics\n"
+         "• Client-side interactions, vacancy card layouts, and status badge styling\n"
+         "• Feature 1 (Vacancy Discovery & Filtering UI) and Feature 6 (Bookmarking Watchlist UI)"),
 
-        ("Darminto Utomo\nNRP: 5025231002", "50%",
-         "• Database migrations & foreign key constraints (job_applications, bookmarks)\n"
-         "• Feature 4: Employer candidate review dashboard & recruitment stage progression\n"
-         "• Feature 5: Candidate real-time application tracking dashboard & status badges\n"
-         "• Feature 6: One-click job bookmarking & personal candidate watchlist\n"
-         "• Feature 7: Candidate application withdrawal & filesystem file cleanup\n"
-         "• Responsive Blade UI system, Three.js 3D globe, & automated PHPUnit test suite")
+        ("Haidar Abiyyu at Taqy\nNRP: 5025521121", "33.33%",
+         "• Database architecture & data modeling (Conceptual CDM & Physical PDM)\n"
+         "• Relational database schema migrations & 5 cascading foreign key constraints\n"
+         "• Comprehensive 100 Job Gigs database seeder with realistic test datasets across 10 categories\n"
+         "• Backend controllers, Eloquent ORM relationships, and RESTful routing\n"
+         "• Feature 2 (Vacancy CRUD & Toggle) and Feature 3 (Application submission & PDF upload)"),
+
+        ("Fakhrian Elanta\nNRP: 5025251019", "33.33%",
+         "• Debugging, edge-case testing, and comprehensive website quality control (QC)\n"
+         "• Automated test suite engineering (PHPUnit with 12 feature tests and 47 passing assertions)\n"
+         "• Authorization security verification (RBAC, ownership policies, CSRF)\n"
+         "• Feature 4 (Applicant Review Workflow), Feature 5 (Tracking Dashboard), Feature 7 (Withdrawal)\n"
+         "• Technical project documentation and Midterm Report authoring")
     ]
 
     for r_idx, cdata in enumerate(contrib_data):
@@ -886,25 +916,36 @@ def create_report():
     r_loc.font.bold = True
     r_loc.font.color.rgb = COLOR_PRIMARY
 
-    # Signatures Table
-    sig_tbl = doc.add_table(rows=2, cols=2)
+    # Signatures Table (3 columns for 3 students)
+    sig_tbl = doc.add_table(rows=2, cols=3)
     sig_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     set_table_borders(sig_tbl, color="FFFFFF", sz="0")
 
+    sig_widths = [Inches(2.1), Inches(2.1), Inches(2.1)]
+    for row in sig_tbl.rows:
+        for idx, cell in enumerate(row.cells):
+            cell.width = sig_widths[idx]
+
     r0 = sig_tbl.rows[0]
-    r0.cells[0].paragraphs[0].add_run("(Signed digitally)\n\n\n____________________________________").font.color.rgb = COLOR_MUTED
-    r0.cells[1].paragraphs[0].add_run("(Signed digitally)\n\n\n____________________________________").font.color.rgb = COLOR_MUTED
+    r0.cells[0].paragraphs[0].add_run("(Signed digitally)\n\n\n_________________________").font.color.rgb = COLOR_MUTED
+    r0.cells[1].paragraphs[0].add_run("(Signed digitally)\n\n\n_________________________").font.color.rgb = COLOR_MUTED
+    r0.cells[2].paragraphs[0].add_run("(Signed digitally)\n\n\n_________________________").font.color.rgb = COLOR_MUTED
 
     r1 = sig_tbl.rows[1]
     p_s1 = r1.cells[0].paragraphs[0]
-    run_s1 = p_s1.add_run("Rianti Dewi\nNRP: 5025231001")
+    run_s1 = p_s1.add_run("Rinaltra Nabasa S\nNRP: 5025251024")
     run_s1.font.bold = True
     run_s1.font.color.rgb = COLOR_PRIMARY
 
     p_s2 = r1.cells[1].paragraphs[0]
-    run_s2 = p_s2.add_run("Darminto Utomo\nNRP: 5025231002")
+    run_s2 = p_s2.add_run("Fakhrian Elanta\nNRP: 5025251019")
     run_s2.font.bold = True
     run_s2.font.color.rgb = COLOR_PRIMARY
+
+    p_s3 = r1.cells[2].paragraphs[0]
+    run_s3 = p_s3.add_run("Haidar Abiyyu at Taqy\nNRP: 5025521121")
+    run_s3.font.bold = True
+    run_s3.font.color.rgb = COLOR_PRIMARY
 
     # -------------------------------------------------------------
     # SECTION 8: APPENDICES & LIVE VERIFICATION URLS
