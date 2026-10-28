@@ -16,9 +16,7 @@
 ## Live Verification & Production References
 
 * **Production Deployed Web App:** [https://midterm-webpro.wasmer.app/](https://midterm-webpro.wasmer.app/)
-* **Interactive WebGL CDM & PDM Diagram Visualizer:** [https://midterm-webpro.wasmer.app/database-diagrams.html](https://midterm-webpro.wasmer.app/database-diagrams.html)
 * **GitHub Repository:** [https://github.com/PopSharkkk/WebProgramming](https://github.com/PopSharkkk/WebProgramming)
-* **Official Word Report:** `Report.docx` (in repository root and `Midterm/`)
 
 ---
 
@@ -441,13 +439,3 @@ php artisan test
 
 ---
 
-## Academic Integrity Pledge
-
-> *“By the name of Allah (God) Almighty, we hereby pledge and declare that we have completed the Midterm Exam independently. We have not engaged in cheating, plagiarism, or received unauthorized assistance in any form. We further declare that any use of AI tools was limited to a supportive role (such as for grammar checking or debugging), and that the final solution is the product of our own intellectual effort. We understand that we will accept all consequences if we are found to have violated this academic integrity pledge.”*
-
-**Surabaya, 28 October 2026**  
-*(Signed digitally)*  
-
-* **Rinaltra Nabasa S** (NRP: `5025251024`)  
-* **Fakhrian Elanta** (NRP: `5025251019`)  
-* **Haidar Abiyyu at Taqy** (NRP: `5025521121`)  
