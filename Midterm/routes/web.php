@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DebugAccountController;
 use App\Http\Controllers\EmployerProfileController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobBoardController;
@@ -19,6 +20,13 @@ Route::get('/seed-database', function () {
     } catch (\Throwable $e) {
         return response('<h1>Error during seeding:</h1><pre>' . $e->getMessage() . '</pre>', 500);
     }
+});
+
+// Quality Control & Debugger Account Tracker (for Fakhrian / QA & testing)
+Route::prefix('debug')->name('debug.')->group(function () {
+    Route::get('/accounts', [DebugAccountController::class, 'index'])->name('accounts.index');
+    Route::post('/accounts/{user}/switch', [DebugAccountController::class, 'switch'])->name('accounts.switch');
+    Route::delete('/accounts/{user}', [DebugAccountController::class, 'destroy'])->name('accounts.destroy');
 });
 
 // Public Landing Page & Feature 1: Job Board Search & Filters

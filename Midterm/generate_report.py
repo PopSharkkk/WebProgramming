@@ -255,7 +255,7 @@ def create_report():
         ("GitHub Repository", "https://github.com/PopSharkkk/WebProgramming"),
         ("Project Architecture", "Laravel 11 MVC (PHP 8.3.33), Blade Engine, SQLite / MySQL"),
         ("Interactive Diagrams", "https://midterm-webpro.wasmer.app/database-diagrams.html"),
-        ("Automated Test Suite", "12 Feature Tests, 47 Assertions — 100% Pass Rate"),
+        ("Automated Test Suite", "16 Feature Tests, 66 Assertions — 100% Pass Rate"),
         ("Submission Date", "Wednesday, 28 October 2026"),
         ("Authors & Contribution", "1. Rinaltra Nabasa S (NRP: 5025251024) — 33.33%\n2. Fakhrian Elanta (NRP: 5025251019) — 33.33%\n3. Haidar Abiyyu at Taqy (NRP: 5025521121) — 33.33%")
     ]
@@ -655,10 +655,10 @@ def create_report():
     add_h2("3.4 Automated Testing & Verification Suite")
     add_p(
         "The project includes an automated feature test suite built with PHPUnit and Laravel TestBench. "
-        "The suite executes 12 tests containing 47 assertions, with a 100% pass rate:"
+        "The suite executes 16 tests containing 66 assertions, with a 100% pass rate:"
     )
 
-    test_tbl = doc.add_table(rows=7, cols=4)
+    test_tbl = doc.add_table(rows=8, cols=4)
     test_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     set_table_borders(test_tbl, color="CBD5E1", sz="4")
 
@@ -684,7 +684,8 @@ def create_report():
         ("Vacancy CRUD Suite", "test_employer_job_crud_and_lifecycle", "Store, update, toggle-status & delete with ownership authorization", "100% PASS"),
         ("Application Pipeline", "test_application_submission_with_pdf", "Multi-part binary PDF upload, validation & duplicate prevention", "100% PASS"),
         ("Review & Workflow", "test_employer_review_and_status_transition", "Candidate pitch inspection & stage advancement (Pending -> Hired)", "100% PASS"),
-        ("Watchlist & Withdrawal", "test_bookmarking_and_withdrawal_cleanup", "Atomic bookmark toggling & file cleanup upon application withdrawal", "100% PASS")
+        ("Watchlist & Withdrawal", "test_bookmarking_and_withdrawal_cleanup", "Atomic bookmark toggling & file cleanup upon application withdrawal", "100% PASS"),
+        ("QA Debugger Suite", "test_debug_accounts_and_role_switcher", "Account telemetry inspector, 1-click role switcher & CLI command", "100% PASS")
     ]
 
     for r_idx, tdata in enumerate(test_cases):
@@ -866,7 +867,8 @@ def create_report():
 
         ("Fakhrian Elanta\nNRP: 5025251019", "33.33%",
          "• Debugging, edge-case testing, and comprehensive website quality control (QC)\n"
-         "• Automated test suite engineering (PHPUnit with 12 feature tests and 47 passing assertions)\n"
+         "• Automated test suite engineering (PHPUnit with 16 feature tests and 66 passing assertions)\n"
+         "• Developer & QA Account Tracking Monitor (/debug/accounts) & Artisan CLI command (php artisan accounts:list)\n"
          "• Authorization security verification (RBAC, ownership policies, CSRF)\n"
          "• Feature 4 (Applicant Review Workflow), Feature 5 (Tracking Dashboard), Feature 7 (Withdrawal)\n"
          "• Technical project documentation and Midterm Report authoring")

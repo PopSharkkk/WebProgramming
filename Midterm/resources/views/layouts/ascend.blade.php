@@ -40,6 +40,7 @@
           <a href="{{ route('home') }}#features">Features</a>
           <a href="{{ route('home') }}#roles">For Students &amp; Businesses</a>
         @endauth
+        <a href="{{ route('debug.accounts.index') }}" class="{{ request()->routeIs('debug.accounts.*') ? 'active' : '' }}" style="color:#f59e0b;font-weight:600" title="Debugger & QA Accounts Inspector">🛠 QA Accounts</a>
       </div>
 
       <div class="nav-actions">
@@ -74,8 +75,11 @@
       @yield('content')
     </main>
 
-    <footer class="copyright" style="padding:28px 24px;margin-top:auto;border-top:1px solid var(--line);background:rgba(9,11,16,.65)">
-      © <span id="year"></span> Ascend — Freelance Job Board &amp; Candidate Application Portal (EF234301 Web Programming Midterm).
+    <footer class="copyright" style="padding:28px 24px;margin-top:auto;border-top:1px solid var(--line);background:rgba(9,11,16,.65);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div>© <span id="year"></span> Ascend — Freelance Job Board &amp; Candidate Application Portal (EF234301 Web Programming Midterm).</div>
+      <div style="font-size:12px">
+        <a href="{{ route('debug.accounts.index') }}" style="color:#f59e0b;display:inline-flex;align-items:center;gap:4px">🛠 QA Account Tracker &amp; Switcher</a>
+      </div>
     </footer>
   </div>
 
