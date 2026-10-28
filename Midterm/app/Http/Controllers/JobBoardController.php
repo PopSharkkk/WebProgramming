@@ -15,7 +15,7 @@ class JobBoardController extends Controller
     protected function ensureSeeded(): void
     {
         try {
-            if (Schema::hasTable('job_postings') && JobPosting::count() === 0) {
+            if (Schema::hasTable('job_postings') && JobPosting::count() < 100) {
                 Artisan::call('db:seed', ['--force' => true]);
             }
         } catch (\Throwable $e) {

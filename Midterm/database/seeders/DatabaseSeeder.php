@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Safely wipe tables so seeder is idempotent and can re-seed cleanly
+        Bookmark::query()->delete();
+        JobApplication::query()->delete();
+        JobPosting::query()->delete();
+        Employer::query()->delete();
+        User::query()->delete();
+
         // 1. Create 10 Verified Employer Accounts
         $employerData = [
             [
