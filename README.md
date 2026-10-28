@@ -439,3 +439,7 @@ php artisan test
 
 ---
 
+
+A quick overview of our website
+<img width="1917" height="1097" alt="image" src="https://github.com/user-attachments/assets/8ed91ba1-35d0-485f-a53e-f20c3fe48979" />
+
