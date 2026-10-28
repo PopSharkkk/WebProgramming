@@ -7,7 +7,19 @@ use App\Http\Controllers\EmployerProfileController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobBoardController;
 use App\Http\Controllers\JobPostingController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
+// Production Database Seeding & Migration Trigger
+Route::get('/seed-database', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+        return redirect()->route('jobs.index')->with('success', 'Database seeded with all 6 demo gigs and 3 employers!');
+    } catch (\Throwable $e) {
+        return response('<h1>Error during seeding:</h1><pre>' . $e->getMessage() . '</pre>', 500);
+    }
+});
 
 // Public Landing Page & Feature 1: Job Board Search & Filters
 Route::get('/', [JobBoardController::class, 'landing'])->name('home');

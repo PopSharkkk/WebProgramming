@@ -607,11 +607,16 @@ def create_report():
          "resources/views/employer/profile/edit.blade.php")
     ]
 
-    for title, routes, logic, view in features:
+    jobs_img_path = r"C:\Users\Rinaltra\.gemini\antigravity\brain\a4b7e33e-038a-448d-9f13-d100a58d83ab\site_jobs.png"
+
+    for idx, (title, routes, logic, view) in enumerate(features):
         add_h3(title)
         add_bullet(routes, "Route(s): ")
         add_bullet(logic, "Backend Logic: ")
         add_bullet(view, "Blade View: ")
+        # Embed Job Board screenshot directly after Feature 1
+        if idx == 0:
+            add_figure(jobs_img_path, "Figure 3: Feature 1 (Vacancy Discovery) — Student Freelance Job Board with multi-criteria search, budget filter, and active gig listings.", width_inches=6.0)
 
     add_h2("3.3 User Interface & Frontend Implementation")
     add_p(
@@ -620,10 +625,7 @@ def create_report():
     )
 
     home_img_path = r"C:\Users\Rinaltra\.gemini\antigravity\brain\a4b7e33e-038a-448d-9f13-d100a58d83ab\site_home.png"
-    add_figure(home_img_path, "Figure 3: Ascend Gigs homepage with interactive Three.js 3D globe and platform statistics.", width_inches=6.0)
-
-    jobs_img_path = r"C:\Users\Rinaltra\.gemini\antigravity\brain\a4b7e33e-038a-448d-9f13-d100a58d83ab\site_jobs.png"
-    add_figure(jobs_img_path, "Figure 4: Job board discovery interface with search, filters, budget slider, and job cards.", width_inches=6.0)
+    add_figure(home_img_path, "Figure 4: Ascend Gigs homepage featuring interactive Three.js 3D globe, live platform statistics, and onboarding call-to-action.", width_inches=6.0)
 
     add_h2("3.4 Automated Testing & Verification Suite")
     add_p(
