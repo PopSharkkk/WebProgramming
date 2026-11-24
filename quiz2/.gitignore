@@ -1,0 +1,9 @@
+target/
+.tools/
+*.log
+*.tmp
+~*
+.DS_Store
+Thumbs.db
+database/*.db-journal
+data/*.db-journal

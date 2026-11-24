@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: wild-indonesia-jsp
+    runtime: docker
+    rootDir: quiz2
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_URL
+        value: jdbc:sqlite:/app/data/wild_indonesia.db
