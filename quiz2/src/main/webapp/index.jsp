@@ -261,7 +261,7 @@
 
     .hero-copy .dropcap {
       float: left;
-      font-size: 2.35em;
+      font-size: 3.2em;
       font-weight: 650;
       line-height: 0.84;
       margin-right: 0.09em;
