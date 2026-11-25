@@ -1,15 +1,37 @@
 @echo off
 setlocal
-if "%JAVA_HOME%"=="" set "JAVA_HOME=C:\Program Files\Microsoft\jdk-21.0.9.10-hotspot"
-set "MVN_LOCAL=C:\Users\Rinaltra\.gemini\antigravity\brain\a4b7e33e-038a-448d-9f13-d100a58d83ab\scratch\maven\apache-maven-3.9.9\bin\mvn.cmd"
-if exist "%MVN_LOCAL%" (
-    "%MVN_LOCAL%" %*
-    exit /b %ERRORLEVEL%
+if "%JAVA_HOME%"=="" (
+    if exist "C:\Program Files\Microsoft\jdk-21.0.9.10-hotspot" (
+        set "JAVA_HOME=C:\Program Files\Microsoft\jdk-21.0.9.10-hotspot"
+    )
 )
+if defined JAVA_HOME set "PATH=%JAVA_HOME%\bin;%PATH%"
+
 where mvn >nul 2>nul
 if %ERRORLEVEL%==0 (
-    mvn %*
+    call mvn %*
     exit /b %ERRORLEVEL%
 )
-echo Maven 3.9.9 not found. Please install Maven or run via start-server.bat.
+
+if exist "%USERPROFILE%\.m2\maven-3.9.9\apache-maven-3.9.9\bin\mvn.cmd" (
+    call "%USERPROFILE%\.m2\maven-3.9.9\apache-maven-3.9.9\bin\mvn.cmd" %*
+    exit /b %ERRORLEVEL%
+)
+
+if defined M2_HOME (
+    if exist "%M2_HOME%\bin\mvn.cmd" (
+        call "%M2_HOME%\bin\mvn.cmd" %*
+        exit /b %ERRORLEVEL%
+    )
+)
+
+if defined MAVEN_HOME (
+    if exist "%MAVEN_HOME%\bin\mvn.cmd" (
+        call "%MAVEN_HOME%\bin\mvn.cmd" %*
+        exit /b %ERRORLEVEL%
+    )
+)
+
+echo [mvnw] Apache Maven not found on PATH or in %%USERPROFILE%%\.m2\maven-3.9.9.
+echo [mvnw] Please install Apache Maven or run start-server.bat.
 exit /b 1
