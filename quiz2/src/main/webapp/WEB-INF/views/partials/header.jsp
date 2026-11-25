@@ -38,7 +38,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="${pageContext.request.contextPath}/debug/accounts" class="tag tag-amber" style="text-decoration:none">QA Accounts</a>
+        <a href="${pageContext.request.contextPath}/debug/accounts" class="tag tag-amber nav-qa-pill" style="text-decoration:none">QA Accounts</a>
         <c:choose>
           <c:when test="${not empty sessionScope.currentUser}">
             <a href="${pageContext.request.contextPath}/profile" class="tag tag-dark" style="text-decoration:none">
@@ -50,9 +50,10 @@
           </c:when>
           <c:otherwise>
             <a href="${pageContext.request.contextPath}/login" class="pill-btn pill-btn-outline pill-btn-sm">Sign In</a>
-            <a href="${pageContext.request.contextPath}/register" class="pill-btn pill-btn-sm">Join Guide</a>
+            <a href="${pageContext.request.contextPath}/register" class="pill-btn pill-btn-sm nav-join-btn">Join Guide</a>
           </c:otherwise>
         </c:choose>
+        <button type="button" class="nav-menu-toggle" aria-expanded="false" onclick="var n=document.querySelector('.site-nav .nav-links');var o=n.classList.toggle('is-open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu';">Menu</button>
       </div>
     </div>
   </header>

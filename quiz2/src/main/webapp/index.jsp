@@ -302,6 +302,8 @@
     .btn-wild:hover { opacity: 0.88; }
     .btn-wild:active { transform: scale(0.97); }
 
+    .hero-mobile-bar { display: none; }
+
     @media (max-width: 720px) {
       :root { --fs: min(22vw, 11vh); }
 
@@ -321,15 +323,69 @@
         top: auto;
         left: auto;
         right: auto;
-        padding: 16px 18px 4px;
+        padding: 14px 18px 0;
         font-size: 13px;
-        gap: 14px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        display: block;
       }
-      .hero-nav::-webkit-scrollbar { display: none; }
-      .hero-nav .nav-group { gap: 14px; flex-shrink: 0; }
+
+      .hero-mobile-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .hero-mobile-brand {
+        font-weight: 800;
+        font-size: 17px;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-mobile-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .hero-menu-btn {
+        background: var(--ink);
+        color: #ffffff;
+        border: none;
+        border-radius: 9999px;
+        padding: 6px 13px;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 550;
+        cursor: pointer;
+      }
+
+      .hero-nav-drawer {
+        display: none;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--rule-soft);
+        border-radius: 16px;
+        padding: 14px 16px;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      }
+
+      .hero-nav.is-open .hero-nav-drawer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 14px;
+      }
+
+      .hero-nav .nav-group {
+        display: contents;
+      }
+
+      .hero-nav-drawer a {
+        padding: 6px 4px;
+        font-size: 13.5px;
+        font-weight: 500;
+      }
 
       .hero-center {
         position: relative;
@@ -388,6 +444,7 @@
 
     @media (min-width: 721px) {
       .mobile-cta-row { display: contents; }
+      .hero-nav-drawer { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     }
 
     /* ARCHIVAL INDONESIA GUIDE BELOW THE HERO FOLD */
@@ -604,27 +661,44 @@
     </div>
 
     <nav class="hero-nav" id="heroNav" aria-label="Primary Navigation">
-      <div class="nav-group left-group">
-        <a href="${pageContext.request.contextPath}/">Home</a>
-        <a href="${pageContext.request.contextPath}/destinations">Destinations</a>
-        <a href="${pageContext.request.contextPath}/regions" class="nav-extra">Regions</a>
-        <a href="${pageContext.request.contextPath}/rentals">Rentals</a>
-        <a href="${pageContext.request.contextPath}/itineraries">Itineraries</a>
-        <a href="${pageContext.request.contextPath}/guides" class="nav-extra">Guides</a>
+      <div class="hero-mobile-bar">
+        <a href="${pageContext.request.contextPath}/" class="hero-mobile-brand">WILD</a>
+        <div class="hero-mobile-actions">
+          <a href="${pageContext.request.contextPath}/destinations" style="font-size:12.5px;font-weight:500">Explore</a>
+          <c:choose>
+            <c:when test="${not empty sessionScope.currentUser}">
+              <a href="${pageContext.request.contextPath}/profile" style="font-size:12.5px;font-weight:500"><c:out value="${sessionScope.currentUser.full_name}"/></a>
+            </c:when>
+            <c:otherwise>
+              <a href="${pageContext.request.contextPath}/login" style="font-size:12.5px;font-weight:500">Sign In</a>
+            </c:otherwise>
+          </c:choose>
+          <button type="button" class="hero-menu-btn" id="heroMenuBtn" aria-expanded="false" aria-controls="heroNavDrawer">Menu</button>
+        </div>
       </div>
-      <div class="nav-group right-group">
-        <a href="${pageContext.request.contextPath}/stories">Field Stories</a>
-        <a href="${pageContext.request.contextPath}/bookings">Bookings</a>
-        <a href="${pageContext.request.contextPath}/debug/accounts">QA Accounts</a>
-        <c:choose>
-          <c:when test="${not empty sessionScope.currentUser}">
-            <a href="${pageContext.request.contextPath}/saved">Saved</a>
-            <a href="${pageContext.request.contextPath}/profile"><c:out value="${sessionScope.currentUser.full_name}"/></a>
-          </c:when>
-          <c:otherwise>
-            <a href="${pageContext.request.contextPath}/login">Sign In</a>
-          </c:otherwise>
-        </c:choose>
+      <div class="hero-nav-drawer" id="heroNavDrawer">
+        <div class="nav-group left-group">
+          <a href="${pageContext.request.contextPath}/">Home</a>
+          <a href="${pageContext.request.contextPath}/destinations">Destinations</a>
+          <a href="${pageContext.request.contextPath}/regions" class="nav-extra">Regions</a>
+          <a href="${pageContext.request.contextPath}/rentals">Rentals</a>
+          <a href="${pageContext.request.contextPath}/itineraries">Itineraries</a>
+          <a href="${pageContext.request.contextPath}/guides" class="nav-extra">Guides</a>
+        </div>
+        <div class="nav-group right-group">
+          <a href="${pageContext.request.contextPath}/stories">Field Stories</a>
+          <a href="${pageContext.request.contextPath}/bookings">Bookings</a>
+          <a href="${pageContext.request.contextPath}/debug/accounts">QA Accounts</a>
+          <c:choose>
+            <c:when test="${not empty sessionScope.currentUser}">
+              <a href="${pageContext.request.contextPath}/saved">Saved</a>
+              <a href="${pageContext.request.contextPath}/profile"><c:out value="${sessionScope.currentUser.full_name}"/></a>
+            </c:when>
+            <c:otherwise>
+              <a href="${pageContext.request.contextPath}/login">Sign In</a>
+            </c:otherwise>
+          </c:choose>
+        </div>
       </div>
     </nav>
 
@@ -932,6 +1006,15 @@
         if (reducedMotion) return;
         playCollapseAndReopen();
       });
+
+      const heroMenuBtn = document.getElementById('heroMenuBtn');
+      if (heroMenuBtn) {
+        heroMenuBtn.addEventListener('click', () => {
+          const open = nav.classList.toggle('is-open');
+          heroMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          heroMenuBtn.textContent = open ? 'Close' : 'Menu';
+        });
+      }
 
       window.addEventListener('resize', () => { buildTimeline(false); });
 
