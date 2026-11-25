@@ -9,10 +9,10 @@ from docx.oxml import OxmlElement, parse_xml
 from docx.oxml.ns import nsdecls, qn
 
 QUIZ2_DIR = r"C:\Users\Rinaltra\Documents\GitHub\WebProgramming\quiz2"
-SHOT_DIR = r"C:\Users\Rinaltra\.gemini\antigravity\brain\a4b7e33e-038a-448d-9f13-d100a58d83ab\scratch\screenshots"
+SHOT_DIR = r"C:\Users\Rinaltra\.gemini\antigravity\brain\1a052545-e742-4f89-8172-3f76e017417a\scratch\screenshots"
 DOWNLOADS_DIR = r"C:\Users\Rinaltra\Downloads"
 
-ZIP_NAME = "EF234301_WebPro_Q2_5025251024_RinaltraNabasaS_5025251019_FakhrianElanta_5025521121_HaidarAbiyyuatTaqy.ZIP"
+ZIP_NAME = "EF234301_WebPro_Q2_5025251024_RinaltraNabasaS_5025251019_FakhrianElanta_5025251121_HaidarAbiyyuatTaqy.ZIP"
 
 COLOR_INK = RGBColor(29, 29, 29)
 COLOR_SECONDARY = RGBColor(58, 58, 58)
@@ -186,7 +186,7 @@ def build_report():
         ("Submission Date", "Wednesday, 25 November 2026"),
         ("Authors & Work Split",
          "1. Rinaltra Nabasa S (NRP: 5025251024) — 33.33% (Wild Pill Hero & Frontend Architecture)\n"
-         "2. Haidar Abiyyu at Taqy (NRP: 5025521121) — 33.33% (3NF Database Design & Servlet/DAO Backend)\n"
+         "2. Haidar Abiyyu at Taqy (NRP: 5025251121) — 33.33% (3NF Database Design & Servlet/DAO Backend)\n"
          "3. Fakhrian Elanta (NRP: 5025251019) — 33.33% (Quality Control, QA Switcher, JUnit 5 Suite & Report)")
     ]
     for i, (k, v) in enumerate(meta_rows):
@@ -307,8 +307,8 @@ def build_report():
          "stories.png",
          "Community trail dispatches attached to Indonesian destinations featuring 1-5 ratings, visited month, photography, narrative body, and practical travel tips with full edit and delete support."),
         ("Feature 8: Personal Archipelago Bucket-List CRUD", "/saved, /saved/toggle, /saved/update, /saved/delete (SavedPlaceServlet)",
-         "qa_accounts.png",
-         "Provides 1-click bookmarking of destinations backed by a composite unique (user_id, destination_id) constraint, inline priority and target season updates, plus a dedicated QA Registered Accounts Inspector at /debug/accounts for role-switching verification.")
+         "saved.png",
+         "Provides 1-click bookmarking of destinations backed by a composite unique (user_id, destination_id) constraint, inline priority tiers (Must Visit / Next Trip / Dreaming), and target travel season planning notes.")
     ]
 
     for title, route, shot, desc in features:
@@ -317,12 +317,20 @@ def build_report():
         add_p(doc, desc)
         add_figure(doc, shot, f"Figure {features.index((title, route, shot, desc)) + 4}: Live screenshot of {title}.", 5.9)
 
+    add_h2(doc, "2.10 Quality Assurance & Telemetry: Accounts Inspector & Live Schema")
+    add_p(doc, "/debug/accounts, /debug/accounts/switch, /database-diagrams (UtilityServlet)", "Endpoint & Servlet: ")
+    add_p(doc,
+          "To streamline grading and multi-role verification, Wild Indonesia includes a dedicated QA Registered Accounts Inspector with live KPI counters, role filters, search, and 1-click passwordless session switching between Curators and Travelers.")
+    add_figure(doc, "qa_accounts.png", "Figure 12: Live screenshot of the QA Registered Accounts Inspector (/debug/accounts).", 5.9)
+
     # SECTION 3: ANALYSIS & EVALUATION (25 POINTS)
     add_h1(doc, "3. Technical Analysis & Automated Verification [25 Points]")
-    add_h2(doc, "3.1 Security & Persistence Integrity")
-    add_bullet(doc, "PBKDF2 Password Hashing: ", "All account credentials are salted and hashed with PBKDF2WithHmacSHA256 at 31,000 iterations and verified via constant-time comparison.")
+    add_h2(doc, "3.1 Security, Validation & Persistence Integrity")
+    add_bullet(doc, "PBKDF2 Password Hashing: ", "All account credentials are salted with 16 random bytes and hashed with PBKDF2WithHmacSHA256 at 31,000 iterations, verified via constant-time MessageDigest.isEqual.")
     add_bullet(doc, "Parameterized SQL Execution: ", "Every CRUD operation inside DataStore uses JDBC PreparedStatement bindings, neutralizing SQL injection across both SQLite and MySQL dialects.")
-    add_bullet(doc, "Session Guards & Cascade Integrity: ", "Mutations check authenticated session state, enforce PRAGMA foreign_keys = ON on SQLite, and cascade deletions cleanly across all child entities.")
+    add_bullet(doc, "Owner-or-Curator Access Control: ", "BookingServlet, ItineraryServlet, StoryServlet, and SavedPlaceServlet verify record ownership (or curator role) before editing, updating status, or deleting records, while keeping unauthenticated /bookings views isolated.")
+    add_bullet(doc, "Input, Date & Redirect Sanitization: ", "BookingServlet validates ISO LocalDate ranges (end_date > start_date) and persists rental_id updates accurately. WebUtil.safePhotoOrFallback() blocks attribute-injection characters, JSP forms/attributes escape via <c:out>, WebUtil.safeInternalRedirect() prevents open redirects, and constraint violations return friendly flash errors.")
+    add_bullet(doc, "Cascade & Dual-Database Integrity: ", "SQLite enforces PRAGMA foreign_keys = ON with ON DELETE CASCADE / SET NULL rules across all 9 tables, matching the MySQL 8+ InnoDB schema.")
 
     add_h2(doc, "3.2 JUnit 5 Automated Integration Suite Results")
     add_p(doc,
@@ -398,7 +406,7 @@ def build_report():
     contribs = [
         ("Rinaltra Nabasa S\nNRP: 5025251024", "33.33%",
          "Web design and frontend engineering: Wild Pill Hero Web Animations 2.1s timeline (desktop & mobile vertical split), SVG archival paper S-curves, JSP editorial CSS system, and responsive views for Destinations, Rentals & Stories."),
-        ("Haidar Abiyyu at Taqy\nNRP: 5025521121", "33.33%",
+        ("Haidar Abiyyu at Taqy\nNRP: 5025251121", "33.33%",
          "Database & backend engineering: 9-table 3NF CDM & PDM design, SQLite/MySQL JDBC DatabaseManager, PBKDF2 security, DataStore DAO, and all Jakarta Servlets implementing Features 1 through 8."),
         ("Fakhrian Elanta\nNRP: 5025251019", "33.33%",
          "Quality control, debugging & documentation: QA Registered Accounts Inspector (/debug/accounts), JUnit 5 full-stack integration test suite (10/10 passing), browser verification screenshots, and Quiz 2 Technical Report.")
@@ -422,7 +430,7 @@ def build_report():
     add_h2(doc, "4.2 Academic Integrity Pledge")
     add_p(doc,
           "\"By the name of Allah (God) Almighty, I hereby pledge and declare that I have completed Quiz 2 independently. I have not engaged in cheating, plagiarism, or received unauthorized assistance in any form. I further declare that any use of AI tools was limited to a supportive role (such as for grammar checking or debugging), and that the final solution is the product of my own intellectual effort. I understand that I will accept all consequences if I am found to have violated this academic integrity pledge.\"")
-    add_p(doc, "Surabaya, 25 November 2026 — Signed digitally by Rinaltra Nabasa S (5025251024), Fakhrian Elanta (5025251019), and Haidar Abiyyu at Taqy (5025521121).")
+    add_p(doc, "Surabaya, 25 November 2026 — Signed digitally by Rinaltra Nabasa S (5025251024), Fakhrian Elanta (5025251019), and Haidar Abiyyu at Taqy (5025251121).")
 
     out_docx = os.path.join(QUIZ2_DIR, "Report.docx")
     doc.save(out_docx)
@@ -482,7 +490,7 @@ def build_declaration():
     members = [
         ("Rinaltra Nabasa S", "5025251024"),
         ("Fakhrian Elanta", "5025251019"),
-        ("Haidar Abiyyu at Taqy", "5025521121")
+        ("Haidar Abiyyu at Taqy", "5025251121")
     ]
     for i, (name, nrp) in enumerate(members):
         sig_tbl.rows[0].cells[i].width = Inches(2.15)

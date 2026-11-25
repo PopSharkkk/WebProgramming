@@ -19,8 +19,8 @@ if "!S2_ID!"=="" set S2_ID=5025251019
 set /p S2_NAME="Enter Student 2 Name (default FakhrianElanta): "
 if "!S2_NAME!"=="" set S2_NAME=FakhrianElanta
 
-set /p S3_ID="Enter Student 3 ID/NRP (default 5025521121): "
-if "!S3_ID!"=="" set S3_ID=5025521121
+set /p S3_ID="Enter Student 3 ID/NRP (default 5025251121): "
+if "!S3_ID!"=="" set S3_ID=5025251121
 
 set /p S3_NAME="Enter Student 3 Name (default HaidarAbiyyuatTaqy): "
 if "!S3_NAME!"=="" set S3_NAME=HaidarAbiyyuatTaqy

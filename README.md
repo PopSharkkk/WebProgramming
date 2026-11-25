@@ -24,7 +24,7 @@
 | Team Member Name | Student ID (NRP) | Contribution (Team Projects) | Primary Assigned Engineering Deliverables |
 |---|---|:---:|---|
 | **Rinaltra Nabasa S** | `5025251024` | **33.33%** | • **Individual Deliverable:** Author of **Quiz 1** (Personal Portfolio & Hometown website)<br>• **Quiz 2:** Wild Pill Hero (`index.jsp` & `wild-hero.html`), SVG archival curves, responsive JSP views<br>• **Midterm:** Responsive Blade UI (1440px / 820px / 375px), Three.js 3D Earth hero, Discovery (F1) & Bookmarking (F6) |
-| **Haidar Abiyyu at Taqy** | `5025521121` | **33.33%** | • **Quiz 2:** 9-table 3NF CDM/PDM schema, Dual SQLite/MySQL `DatabaseManager`, `DataStore` DAO, Jakarta Servlets<br>• **Midterm:** Relational schema migrations, 100-gig seeder, Eloquent ORM routing, Vacancy CRUD (F2) & Application submission (F3) |
+| **Haidar Abiyyu at Taqy** | `5025251121` | **33.33%** | • **Quiz 2:** 9-table 3NF CDM/PDM schema, Dual SQLite/MySQL `DatabaseManager`, `DataStore` DAO, Jakarta Servlets<br>• **Midterm:** Relational schema migrations, 100-gig seeder, Eloquent ORM routing, Vacancy CRUD (F2) & Application submission (F3) |
 | **Fakhrian Elanta** | `5025251019` | **33.33%** | • **Quiz 2:** Quality Control, JUnit 5 integration suite (`10/10` passing), QA Inspector (`/debug/accounts`), Quiz 2 Report<br>• **Midterm:** PHPUnit automated test suite (`16/16` passing, 66 assertions), QA Accounts Monitor (`/debug/accounts`), Midterm Report |
 
 ---
