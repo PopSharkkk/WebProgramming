@@ -101,24 +101,32 @@ a { color: inherit; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 2px;
   flex-wrap: wrap;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 500;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--rule-soft);
+  border-radius: 9999px;
+  padding: 4px 6px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--ink-2);
-  padding: 5px 2px;
-  border-bottom: 1.5px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--ink);
-  border-bottom-color: var(--ink);
+  background: rgba(29, 29, 29, 0.06);
+}
+
+.nav-links a.active {
+  color: #ffffff;
+  background: var(--ink);
 }
 
 .nav-actions {
@@ -531,8 +539,9 @@ details.crud-drawer summary {
     display: none;
     order: 3;
     width: 100%;
-    padding-top: 8px;
-    border-top: 1px solid var(--rule-soft);
+    padding: 10px 12px;
+    border-radius: 16px;
+    margin-top: 4px;
   }
   .nav-links.is-open {
     display: grid;

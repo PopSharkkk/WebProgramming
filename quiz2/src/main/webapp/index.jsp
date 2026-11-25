@@ -84,9 +84,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: calc(var(--fs) * 0.14) calc(var(--fs) * 0.27) 0;
-      font-size: max(12px, calc(var(--fs) * 0.072));
-      font-weight: 450;
+      padding: calc(var(--fs) * 0.12) calc(var(--fs) * 0.24) 0;
+      font-size: max(12px, calc(var(--fs) * 0.068));
+      font-weight: 500;
       line-height: 1.2;
       color: var(--ink);
       transform: translateY(-140%);
@@ -95,17 +95,55 @@
     .nav-group {
       display: flex;
       align-items: center;
-      gap: 1.55em;
+      gap: 0.25em;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(29, 29, 29, 0.09);
+      border-radius: 9999px;
+      padding: 4px 6px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.035);
     }
 
     .hero-nav a {
       color: inherit;
       text-decoration: none;
       white-space: nowrap;
-      transition: opacity 0.2s ease;
+      padding: 0.48em 0.92em;
+      border-radius: 9999px;
+      transition: background 0.18s ease, color 0.18s ease, opacity 0.18s ease;
     }
 
-    .hero-nav a:hover { opacity: 0.58; }
+    .hero-nav .nav-group a:hover {
+      background: rgba(29, 29, 29, 0.06);
+    }
+
+    .hero-nav .nav-group a.nav-active {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .hero-nav .nav-group a.nav-qa {
+      background: rgba(180, 83, 9, 0.10);
+      color: #92400e;
+      font-weight: 550;
+    }
+
+    .hero-nav .nav-group a.nav-qa:hover {
+      background: rgba(180, 83, 9, 0.17);
+    }
+
+    .hero-nav .nav-group a.nav-cta {
+      background: var(--btn);
+      color: #ffffff;
+      font-weight: 550;
+      padding: 0.48em 1.15em;
+    }
+
+    .hero-nav .nav-group a.nav-cta:hover {
+      background: #000000;
+      opacity: 0.9;
+    }
 
     .hero-center {
       position: absolute;
@@ -379,12 +417,17 @@
 
       .hero-nav .nav-group {
         display: contents;
+        background: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: none;
       }
 
       .hero-nav-drawer a {
-        padding: 6px 4px;
+        padding: 8px 10px;
         font-size: 13.5px;
         font-weight: 500;
+        border-radius: 10px;
       }
 
       .hero-center {
@@ -678,7 +721,7 @@
       </div>
       <div class="hero-nav-drawer" id="heroNavDrawer">
         <div class="nav-group left-group">
-          <a href="${pageContext.request.contextPath}/">Home</a>
+          <a href="${pageContext.request.contextPath}/" class="nav-active">Home</a>
           <a href="${pageContext.request.contextPath}/destinations">Destinations</a>
           <a href="${pageContext.request.contextPath}/regions" class="nav-extra">Regions</a>
           <a href="${pageContext.request.contextPath}/rentals">Rentals</a>
@@ -688,14 +731,14 @@
         <div class="nav-group right-group">
           <a href="${pageContext.request.contextPath}/stories">Field Stories</a>
           <a href="${pageContext.request.contextPath}/bookings">Bookings</a>
-          <a href="${pageContext.request.contextPath}/debug/accounts">QA Accounts</a>
+          <a href="${pageContext.request.contextPath}/debug/accounts" class="nav-qa">QA Accounts</a>
           <c:choose>
             <c:when test="${not empty sessionScope.currentUser}">
               <a href="${pageContext.request.contextPath}/saved">Saved</a>
-              <a href="${pageContext.request.contextPath}/profile"><c:out value="${sessionScope.currentUser.full_name}"/></a>
+              <a href="${pageContext.request.contextPath}/profile" class="nav-cta"><c:out value="${sessionScope.currentUser.full_name}"/></a>
             </c:when>
             <c:otherwise>
-              <a href="${pageContext.request.contextPath}/login">Sign In</a>
+              <a href="${pageContext.request.contextPath}/login" class="nav-cta">Sign In</a>
             </c:otherwise>
           </c:choose>
         </div>
