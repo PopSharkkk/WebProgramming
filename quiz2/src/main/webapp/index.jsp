@@ -303,17 +303,42 @@
     .btn-wild:active { transform: scale(0.97); }
 
     @media (max-width: 720px) {
-      :root { --fs: min(34vw, 16.5vh); }
+      :root { --fs: min(22vw, 11vh); }
 
-      .hero-nav { padding: 16px 20px 0; font-size: 12.5px; }
-      .hero-nav .nav-group.right-group { display: none; }
-      .hero-nav .nav-group.left-group { width: 100%; justify-content: space-between; gap: 10px; }
-      .hero-nav .nav-extra { display: none; }
+      .stage {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 20px;
+      }
+
+      .hero-nav {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        padding: 16px 18px 4px;
+        font-size: 13px;
+        gap: 14px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .hero-nav::-webkit-scrollbar { display: none; }
+      .hero-nav .nav-group { gap: 14px; flex-shrink: 0; }
 
       .hero-center {
-        top: 47%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         flex-direction: column;
-        width: calc(100% - 40px);
+        width: calc(100% - 36px);
+        margin: auto;
         gap: 0.03em;
       }
 
@@ -329,15 +354,27 @@
         transform: translateY(-50%);
         width: 100%;
         min-width: 100%;
-        height: calc((100vw - 40px) / 1.85);
+        height: calc((100vw - 36px) / 1.85);
       }
 
-      .pill-icon { width: 22px; height: 22px; }
-      .pill-icon.breeze { left: 16px; }
-      .pill-icon.speaker { right: 16px; }
+      .pill-caption {
+        font-size: 10px;
+        max-width: calc(100% - 24px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        bottom: 10px;
+      }
+
+      .pill-icon { width: 20px; height: 20px; }
+      .pill-icon.breeze { left: 14px; }
+      .pill-icon.speaker { right: 14px; }
 
       .hero-footer {
-        padding: 0 20px 20px;
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        padding: 4px 18px 0;
         flex-direction: column;
         align-items: stretch;
         gap: 14px;
@@ -790,7 +827,7 @@
         let gapFrames;
 
         if (phone) {
-          const w = center.clientWidth || (document.documentElement.clientWidth - 40);
+          const w = center.clientWidth || (document.documentElement.clientWidth - 36);
           const finalH = w / 1.85;
           pill.style.width = '100%';
           pillFrames = [
