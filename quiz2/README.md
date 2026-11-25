@@ -11,7 +11,7 @@
 | Team Member | Student ID (NRP) | Share | Core Responsibilities |
 |---|---|:---:|---|
 | **Rinaltra Nabasa S** | `5025251024` | 33.33% | Wild Pill Hero Web Animations (`index.jsp` & `wild-hero.html`), archival paper SVG curves, responsive UI/UX & JSP view styling |
-| **Haidar Abiyyu at Taqy** | `5025521121` | 33.33% | 9-table 3NF CDM/PDM schema (`schema_sqlite.sql`, `schema_mysql.sql`), dual SQLite/MySQL JDBC `DatabaseManager`, `DataStore` DAO & Jakarta Servlets |
+| **Haidar Abiyyu at Taqy** | `5025251121` | 33.33% | 9-table 3NF CDM/PDM schema (`schema_sqlite.sql`, `schema_mysql.sql`), dual SQLite/MySQL JDBC `DatabaseManager`, `DataStore` DAO & Jakarta Servlets |
 | **Fakhrian Elanta** | `5025251019` | 33.33% | Quality Control, QA Registered Accounts Inspector (`/debug/accounts`), JUnit 5 full-stack CRUD integration suite (`10/10` passing) & Quiz 2 Report |
 
 ---
