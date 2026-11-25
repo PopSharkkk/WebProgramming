@@ -61,6 +61,10 @@ public class RegionServlet extends HttpServlet {
                 WebUtil.redirectWithSuccess(req, resp, "/regions", "Region deleted.");
             }
         } catch (SQLException e) {
+            if (WebUtil.isConstraintViolation(e)) {
+                WebUtil.redirectWithError(req, resp, "/regions", "A region with that code already exists.");
+                return;
+            }
             throw new ServletException("Error managing region", e);
         }
     }

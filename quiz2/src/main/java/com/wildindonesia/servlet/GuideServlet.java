@@ -75,6 +75,10 @@ public class GuideServlet extends HttpServlet {
                 WebUtil.redirectWithSuccess(req, resp, "/guides", "Local guide removed.");
             }
         } catch (SQLException e) {
+            if (WebUtil.isConstraintViolation(e)) {
+                WebUtil.redirectWithError(req, resp, "/guides", "A guide with that HPI license number already exists.");
+                return;
+            }
             throw new ServletException("Error saving guide", e);
         }
     }

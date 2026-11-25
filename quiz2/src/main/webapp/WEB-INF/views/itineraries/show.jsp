@@ -26,7 +26,7 @@
     <h2 style="font-size:18px;font-weight:700;margin-bottom:10px">Day-by-Day Stage Plan</h2>
     <pre style="font-family:inherit;white-space:pre-wrap;font-size:14.5px;line-height:1.7;color:var(--ink-2)"><c:out value="${itinerary.day_by_day_plan}"/></pre>
 
-    <div style="margin-top:24px;display:flex;gap:10px">
+    <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
       <a href="${pageContext.request.contextPath}/bookings" class="pill-btn">Book Rental for This Route</a>
       <a href="${pageContext.request.contextPath}/itineraries?edit_id=${itinerary.id}" class="pill-btn pill-btn-outline">Edit Plan</a>
     </div>

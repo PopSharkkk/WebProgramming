@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BookingServlet extends HttpServlet {
     @Override
@@ -19,12 +21,15 @@ public class BookingServlet extends HttpServlet {
         try {
             Map<String, Object> user = WebUtil.currentUser(req);
             String statusFilter = WebUtil.param(req, "status", "");
-            boolean viewAll = "1".equals(req.getParameter("all")) || (user != null && "curator".equals(user.get("role")));
-            Long userIdFilter = (user != null && !viewAll) ? WebUtil.currentUserId(req) : null;
+            boolean isCurator = user != null && "curator".equals(user.get("role"));
+            boolean viewAll = isCurator && ("1".equals(req.getParameter("all")) || isCurator);
+            List<Map<String, Object>> bookings = (user == null)
+                    ? List.of()
+                    : DataStore.listBookings(viewAll ? null : WebUtil.currentUserId(req), statusFilter);
 
             req.setAttribute("activeNav", "bookings");
             req.setAttribute("pageTitle", "Expedition Rental Bookings — Wild Indonesia");
-            req.setAttribute("bookings", DataStore.listBookings(userIdFilter, statusFilter));
+            req.setAttribute("bookings", bookings);
             req.setAttribute("rentals", DataStore.listRentals(null, null, null, false));
             req.setAttribute("guides", DataStore.listGuides(null, null));
             req.setAttribute("selectedStatus", statusFilter);
@@ -32,8 +37,11 @@ public class BookingServlet extends HttpServlet {
             req.setAttribute("preselectedRentalId", WebUtil.parseLong(req.getParameter("rental_id"), 0));
 
             long editId = WebUtil.parseLong(req.getParameter("edit_id"), 0);
-            if (editId > 0) {
-                req.setAttribute("editing", DataStore.findBooking(editId));
+            if (editId > 0 && user != null) {
+                Map<String, Object> existing = DataStore.findBooking(editId);
+                if (existing != null && (isCurator || ((Number) existing.get("user_id")).longValue() == WebUtil.currentUserId(req))) {
+                    req.setAttribute("editing", existing);
+                }
             }
             WebUtil.render(req, resp, "bookings/index.jsp");
         } catch (SQLException e) {
@@ -45,10 +53,11 @@ public class BookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (!WebUtil.requireAuth(req, resp)) return;
         String pathInfo = req.getPathInfo();
+        long userId = WebUtil.currentUserId(req);
+        boolean isCurator = WebUtil.isCurator(req);
         try {
             if ("/save".equals(pathInfo)) {
                 long id = WebUtil.parseLong(req.getParameter("id"), 0);
-                long userId = WebUtil.currentUserId(req);
                 long rentalId = WebUtil.parseLong(req.getParameter("rental_id"), 1);
                 long guideRaw = WebUtil.parseLong(req.getParameter("guide_id"), 0);
                 Long guideId = guideRaw > 0 ? guideRaw : null;
@@ -59,30 +68,54 @@ public class BookingServlet extends HttpServlet {
                 String status = WebUtil.param(req, "status", "Pending");
 
                 long days = computeDays(startDate, endDate);
+                if (days <= 0) {
+                    WebUtil.redirectWithError(req, resp, "/bookings", "Please enter valid dates where End Date is after Start Date.");
+                    return;
+                }
                 Map<String, Object> rental = DataStore.findRental(rentalId);
-                long dailyRental = rental != null ? ((Number) rental.get("price_per_day_idr")).longValue() : 500000L;
+                if (rental == null) {
+                    WebUtil.redirectWithError(req, resp, "/bookings", "Selected rental was not found.");
+                    return;
+                }
+                long dailyRental = ((Number) rental.get("price_per_day_idr")).longValue();
                 long dailyGuide = 0L;
                 if (guideId != null) {
                     Map<String, Object> guide = DataStore.findGuide(guideId);
                     if (guide != null) dailyGuide = ((Number) guide.get("daily_rate_idr")).longValue();
+                    else guideId = null;
                 }
                 long total = days * (dailyRental + dailyGuide);
 
                 if (id > 0) {
-                    DataStore.updateBookingDetails(id, startDate, endDate, guests, guideId, total, notes, status);
+                    Map<String, Object> existing = DataStore.findBooking(id);
+                    if (existing == null || (!isCurator && ((Number) existing.get("user_id")).longValue() != userId)) {
+                        WebUtil.redirectWithError(req, resp, "/bookings", "You do not have permission to edit this booking.");
+                        return;
+                    }
+                    DataStore.updateBookingDetails(id, rentalId, startDate, endDate, guests, guideId, total, notes, status);
                     WebUtil.redirectWithSuccess(req, resp, "/bookings", "Updated booking #" + id + " (" + days + " day(s)).");
                 } else {
-                    String code = "WLD-2026-" + (1000 + (System.currentTimeMillis() % 8999));
+                    String code = "WLD-2026-" + ThreadLocalRandom.current().nextInt(1000, 9999) + "-" + ThreadLocalRandom.current().nextInt(10, 99);
                     DataStore.createBooking(userId, rentalId, guideId, code, startDate, endDate, guests, total, notes);
                     WebUtil.redirectWithSuccess(req, resp, "/bookings", "Reservation confirmed as Pending (" + code + ").");
                 }
             } else if ("/status".equals(pathInfo)) {
                 long id = WebUtil.parseLong(req.getParameter("id"), 0);
+                Map<String, Object> existing = DataStore.findBooking(id);
+                if (existing == null || (!isCurator && ((Number) existing.get("user_id")).longValue() != userId)) {
+                    WebUtil.redirectWithError(req, resp, "/bookings", "You do not have permission to update this booking.");
+                    return;
+                }
                 String status = WebUtil.param(req, "status", "Confirmed");
                 DataStore.updateBookingStatus(id, status);
-                WebUtil.redirectWithSuccess(req, resp, "/bookings?all=1", "Booking status changed to " + status + ".");
+                WebUtil.redirectWithSuccess(req, resp, "/bookings", "Booking status changed to " + status + ".");
             } else if ("/delete".equals(pathInfo)) {
                 long id = WebUtil.parseLong(req.getParameter("id"), 0);
+                Map<String, Object> existing = DataStore.findBooking(id);
+                if (existing == null || (!isCurator && ((Number) existing.get("user_id")).longValue() != userId)) {
+                    WebUtil.redirectWithError(req, resp, "/bookings", "You do not have permission to delete this booking.");
+                    return;
+                }
                 DataStore.deleteBooking(id);
                 WebUtil.redirectWithSuccess(req, resp, "/bookings", "Booking record cancelled and removed.");
             }
@@ -96,9 +129,9 @@ public class BookingServlet extends HttpServlet {
             LocalDate s = LocalDate.parse(startStr);
             LocalDate e = LocalDate.parse(endStr);
             long diff = ChronoUnit.DAYS.between(s, e);
-            return Math.max(1L, diff);
+            return diff > 0 ? diff : -1L;
         } catch (Exception ex) {
-            return 2L;
+            return -1L;
         }
     }
 }

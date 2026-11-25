@@ -436,10 +436,10 @@ public final class DataStore {
             userId, rentalId, guideId, bookingCode, startDate, endDate, guests, totalPriceIdr, specialRequests);
     }
 
-    public static void updateBookingDetails(long id, String startDate, String endDate, int guests, Long guideId, long totalPriceIdr, String specialRequests, String status) throws SQLException {
+    public static void updateBookingDetails(long id, long rentalId, String startDate, String endDate, int guests, Long guideId, long totalPriceIdr, String specialRequests, String status) throws SQLException {
         executeUpdate(
-            "UPDATE bookings SET start_date=?, end_date=?, guests_count=?, guide_id=?, total_price_idr=?, special_requests=?, status=? WHERE id=?",
-            startDate, endDate, guests, guideId, totalPriceIdr, specialRequests, status, id);
+            "UPDATE bookings SET rental_id=?, start_date=?, end_date=?, guests_count=?, guide_id=?, total_price_idr=?, special_requests=?, status=? WHERE id=?",
+            rentalId, startDate, endDate, guests, guideId, totalPriceIdr, specialRequests, status, id);
     }
 
     public static void updateBookingStatus(long id, String status) throws SQLException {

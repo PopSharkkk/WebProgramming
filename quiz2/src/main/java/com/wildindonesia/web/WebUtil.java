@@ -69,15 +69,39 @@ public final class WebUtil {
         try { return Double.parseDouble(s.trim()); } catch (NumberFormatException e) { return fallback; }
     }
 
+    public static boolean isCurator(HttpServletRequest req) {
+        Map<String, Object> user = currentUser(req);
+        return user != null && "curator".equals(user.get("role"));
+    }
+
+    public static boolean isConstraintViolation(java.sql.SQLException e) {
+        if (e == null || e.getMessage() == null) return false;
+        String msg = e.getMessage().toLowerCase();
+        return msg.contains("unique") || msg.contains("duplicate") || msg.contains("constraint");
+    }
+
+    public static String safeInternalRedirect(String path, String fallback) {
+        if (path == null || path.isBlank()) return fallback;
+        String p = path.trim();
+        if (p.startsWith("/") && !p.startsWith("//") && !p.contains("://") && !p.contains("\r") && !p.contains("\n")) {
+            return p;
+        }
+        return fallback;
+    }
+
     public static String slugify(String text) {
-        if (text == null) return "entry-" + System.currentTimeMillis();
+        int rand = java.util.concurrent.ThreadLocalRandom.current().nextInt(1000, 9999);
+        if (text == null) return "entry-" + System.currentTimeMillis() + "-" + rand;
         String slug = text.toLowerCase().replaceAll("[^a-z0-9]+", "-").replaceAll("(^-|-$)", "");
-        return slug.isEmpty() ? "entry-" + System.currentTimeMillis() : slug + "-" + (System.currentTimeMillis() % 10000);
+        return slug.isEmpty() ? "entry-" + System.currentTimeMillis() + "-" + rand : slug + "-" + rand;
     }
 
     public static String safePhotoOrFallback(String url, String fallback) {
         if (url == null || url.isBlank()) return fallback;
         String u = url.trim();
+        if (u.contains("\"") || u.contains("'") || u.contains("<") || u.contains(">") || u.contains(" ")) {
+            return fallback;
+        }
         if (u.startsWith("https://") || u.startsWith("http://") || u.startsWith("/")) return u;
         return fallback;
     }

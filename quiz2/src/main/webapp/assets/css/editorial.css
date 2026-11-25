@@ -466,7 +466,8 @@ a { color: inherit; }
   color: var(--ink);
 }
 
-.stat-label {
+.stat-label,
+.stat-cap {
   font-size: 12px;
   color: var(--muted);
   margin-top: 3px;
@@ -509,6 +510,8 @@ details.crud-drawer summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 980px) {
@@ -548,8 +551,9 @@ details.crud-drawer summary {
     grid-template-columns: 1fr 1fr;
     gap: 8px 14px;
   }
-  .nav-links a { white-space: nowrap; border-bottom: none; padding: 6px 2px; }
+  .nav-links a { white-space: nowrap; border-bottom: none; padding: 8px 12px; }
   .nav-actions { flex-wrap: wrap; gap: 6px; }
   .filter-strip { flex-direction: column; align-items: stretch; }
+  .filter-strip .field { max-width: 100% !important; margin-left: 0 !important; width: 100%; }
   .card-grid, .card-grid-2, .form-grid-2, .form-grid-3, .stat-strip { grid-template-columns: 1fr; }
 }

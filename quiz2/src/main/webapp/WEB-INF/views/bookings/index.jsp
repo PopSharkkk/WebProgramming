@@ -66,11 +66,11 @@
     <div class="form-grid-3">
       <div class="field">
         <label>Start Date</label>
-        <input type="date" name="start_date" class="input" value="${not empty editing ? editing.start_date : '2026-12-15'}" required>
+        <input type="date" name="start_date" class="input" value="<c:out value='${not empty editing ? editing.start_date : "2026-12-15"}'/>" required>
       </div>
       <div class="field">
         <label>End Date</label>
-        <input type="date" name="end_date" class="input" value="${not empty editing ? editing.end_date : '2026-12-17'}" required>
+        <input type="date" name="end_date" class="input" value="<c:out value='${not empty editing ? editing.end_date : "2026-12-17"}'/>" required>
       </div>
       <div class="field">
         <label>Guests</label>

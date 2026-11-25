@@ -39,7 +39,7 @@
       <textarea name="bio" class="textarea"><c:out value="${sessionScope.currentUser.bio}"/></textarea>
     </div>
 
-    <div style="display:flex;gap:10px">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
       <button type="submit" class="pill-btn">Save Profile Changes</button>
       <a href="${pageContext.request.contextPath}/bookings" class="pill-btn pill-btn-outline">My Bookings</a>
       <a href="${pageContext.request.contextPath}/saved" class="pill-btn pill-btn-outline">Bucket List</a>

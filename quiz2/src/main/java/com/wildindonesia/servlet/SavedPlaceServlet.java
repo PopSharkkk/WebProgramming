@@ -35,7 +35,7 @@ public class SavedPlaceServlet extends HttpServlet {
             if ("/toggle".equals(pathInfo)) {
                 long destId = WebUtil.parseLong(req.getParameter("destination_id"), 0);
                 boolean added = DataStore.toggleSavedPlace(userId, destId);
-                String redirectBack = WebUtil.param(req, "redirect", "/saved");
+                String redirectBack = WebUtil.safeInternalRedirect(req.getParameter("redirect"), "/saved");
                 WebUtil.redirectWithSuccess(req, resp, redirectBack,
                         added ? "Added destination to your Indonesia bucket list." : "Removed destination from your bucket list.");
             } else if ("/update".equals(pathInfo)) {

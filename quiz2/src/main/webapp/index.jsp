@@ -386,6 +386,13 @@
         gap: 8px;
       }
 
+      .hero-mobile-actions a {
+        max-width: 115px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 6px 8px;
+      }
+
       .hero-menu-btn {
         background: var(--ink);
         color: #ffffff;
@@ -483,6 +490,11 @@
       .footer-rule-wrap { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; padding-bottom: 0; }
       .mobile-cta-row { display: flex; align-items: center; gap: 14px; width: 100%; }
       .btn-wild { height: 38px; padding: 0 18px; font-size: 12.5px; }
+    }
+
+    @media (min-width: 721px) and (max-width: 1120px) {
+      .hero-nav { padding: 14px 18px 0; font-size: clamp(10.5px, 1.08vw, 12.5px); }
+      .hero-nav a { padding: 0.42em 0.65em; }
     }
 
     @media (min-width: 721px) {
