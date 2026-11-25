@@ -87,7 +87,16 @@ public class AuthServlet extends HttpServlet {
             return;
         }
 
-        long id = DataStore.createUser(fullName, email, DatabaseManager.hashPassword(password), role, nationality, phone, bio);
+        long id;
+        try {
+            id = DataStore.createUser(fullName, email, DatabaseManager.hashPassword(password), role, nationality, phone, bio);
+        } catch (SQLException e) {
+            if (WebUtil.isConstraintViolation(e)) {
+                WebUtil.redirectWithError(req, resp, "/register", "That email is already registered.");
+                return;
+            }
+            throw e;
+        }
         Map<String, Object> user = DataStore.findUserById(id);
         req.getSession(true).setAttribute("currentUser", user);
         WebUtil.redirectWithSuccess(req, resp, "/destinations", "Account created for " + fullName + ". Start planning your Indonesia trip!");

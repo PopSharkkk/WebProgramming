@@ -77,6 +77,11 @@ public class ItineraryServlet extends HttpServlet {
                     return;
                 }
                 if (id > 0) {
+                    var existing = DataStore.findItinerary(id);
+                    if (existing == null || (!WebUtil.isCurator(req) && ((Number) existing.get("user_id")).longValue() != userId)) {
+                        WebUtil.redirectWithError(req, resp, "/itineraries", "You do not have permission to edit this itinerary.");
+                        return;
+                    }
                     DataStore.updateItinerary(id, regionId, title, days, budget, pace, stops, plan, cover, isPublic);
                     WebUtil.redirectWithSuccess(req, resp, "/itineraries", "Updated itinerary: " + title);
                 } else {
@@ -85,6 +90,11 @@ public class ItineraryServlet extends HttpServlet {
                 }
             } else if ("/delete".equals(pathInfo)) {
                 long id = WebUtil.parseLong(req.getParameter("id"), 0);
+                var existing = DataStore.findItinerary(id);
+                if (existing == null || (!WebUtil.isCurator(req) && ((Number) existing.get("user_id")).longValue() != WebUtil.currentUserId(req))) {
+                    WebUtil.redirectWithError(req, resp, "/itineraries", "You do not have permission to delete this itinerary.");
+                    return;
+                }
                 DataStore.deleteItinerary(id);
                 WebUtil.redirectWithSuccess(req, resp, "/itineraries", "Itinerary deleted.");
             }

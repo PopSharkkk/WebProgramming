@@ -54,6 +54,11 @@ public class StoryServlet extends HttpServlet {
                     return;
                 }
                 if (id > 0) {
+                    var existing = DataStore.findStory(id);
+                    if (existing == null || (!WebUtil.isCurator(req) && ((Number) existing.get("user_id")).longValue() != userId)) {
+                        WebUtil.redirectWithError(req, resp, "/stories", "You do not have permission to edit this story.");
+                        return;
+                    }
                     DataStore.updateStory(id, destId, title, rating, visitedMonth, body, photo, tip);
                     WebUtil.redirectWithSuccess(req, resp, "/stories", "Updated field story: " + title);
                 } else {
@@ -62,6 +67,11 @@ public class StoryServlet extends HttpServlet {
                 }
             } else if ("/delete".equals(pathInfo)) {
                 long id = WebUtil.parseLong(req.getParameter("id"), 0);
+                var existing = DataStore.findStory(id);
+                if (existing == null || (!WebUtil.isCurator(req) && ((Number) existing.get("user_id")).longValue() != WebUtil.currentUserId(req))) {
+                    WebUtil.redirectWithError(req, resp, "/stories", "You do not have permission to delete this story.");
+                    return;
+                }
                 DataStore.deleteStory(id);
                 WebUtil.redirectWithSuccess(req, resp, "/stories", "Field story removed.");
             }
