@@ -523,42 +523,42 @@ public final class DatabaseManager {
             long g1 = insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 padarId, "Kornelius Manggarai", "Komodo Marine & Trekking", "Indonesian, English", 11, 750000, "HPI-NTT-2015-084",
-                "https://images.unsplash.com/photo-1657788405193-c2039edaad6b?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
                 "Born in Flores with over a decade navigating Komodo currents and Padar sunrise photography ridges.", 1);
             long g2 = insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 bromoId, "Budi Hartono", "Volcanic Geology & Astrophotography", "Indonesian, Javanese, English", 9, 550000, "HPI-JTM-2017-219",
-                "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
                 "East Java mountain leader specializing in quiet lesser-known Bromo ridge trails away from jeep crowds.", 1);
             long g3 = insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 borobudurId, "Ratna Wijaya", "Javanese Archaeology & Batik", "Indonesian, English, Japanese", 14, 650000, "HPI-JTG-2012-031",
-                "https://images.unsplash.com/photo-1566559532224-6d65e9fc0f37?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
                 "Cultural historian trained in Sailendra reliefs and rural Menoreh artisan crafts.", 1);
             long g4 = insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 kelingkingId, "I Made Agus Suryawan", "Freediving & Cliff Safety", "Indonesian, Balinese, English", 8, 600000, "HPI-BAL-2018-412",
-                "https://images.unsplash.com/photo-1576363399501-0dd08fc750e1?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
                 "Certified rescue diver and Penida resident who tracks seasonal manta cleaning stations safely.", 1);
             long g5 = insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 wayagId, "Yohanes Mambrasar", "Papuan Reef & Birding Guide", "Indonesian, English", 10, 850000, "HPI-PBD-2016-019",
-                "https://images.unsplash.com/photo-1703769605296-b5ab3cece3d9?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
                 "Conservation ranger from Gam Island guiding Wilson's bird-of-paradise dawn treks and Wayag passages.", 1);
             insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 ijenId, "Siti Nurhaliza", "Sulfur Crater Safety & Coffee Trail", "Indonesian, English", 6, 500000, "HPI-JTM-2020-504",
-                "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
                 "Banyuwangi mountaineer pairing Kawah Ijen sunrise hikes with Osing village robusta tastings.", 1);
             insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 ubudId, "Ni Luh Putu Sari", "Subak Ecology & Culinary Walks", "Indonesian, English, French", 7, 520000, "HPI-BAL-2019-177",
-                "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
                 "Ethnobotanist leading serene morning walks through Jatiluwih terraces and village spice gardens.", 1);
             insertAndGetId(conn,
                 "INSERT INTO local_guides (destination_id, full_name, specialty, languages, years_experience, daily_rate_idr, license_number, photo_url, bio, is_verified) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 prambananId, "Bagus Santoso", "Ramayana Heritage & Architecture", "Indonesian, English", 5, 450000, "HPI-DIY-2021-093",
-                "https://images.unsplash.com/photo-1576233475048-55f08b53a8bd?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
                 "Architecture graduate mapping Hindu-Javanese candi geometry across Prambanan and Sewu.", 1);
 
             // 6. Seed 6 Nusantara Itineraries

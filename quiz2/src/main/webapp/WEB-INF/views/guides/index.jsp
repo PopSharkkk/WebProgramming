@@ -79,7 +79,7 @@
       </div>
       <div class="field">
         <label>Portrait / Field Image URL</label>
-        <input type="url" name="photo_url" class="input" value="<c:out value='${not empty editing ? editing.photo_url : "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80"}'/>">
+        <input type="url" name="photo_url" class="input" value="<c:out value='${not empty editing ? editing.photo_url : "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"}'/>">
       </div>
     </div>
 
@@ -104,7 +104,7 @@
   <c:forEach var="g" items="${guides}">
     <article class="editorial-card">
       <div class="card-media">
-        <img src="${g.photo_url}" alt="<c:out value='${g.full_name}'/>" loading="lazy">
+        <img src="${g.photo_url}" alt="<c:out value='${g.full_name}'/>" loading="lazy" style="object-position:center 20%">
       </div>
       <div class="card-body">
         <div class="card-meta">
