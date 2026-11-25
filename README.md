@@ -16,25 +16,26 @@
 
 ---
 
-## Team Members & Equal Work Distribution (33.33% Each)
+## Team Members & Work Distribution
 
-The coursework engineering, architectural design, database modeling, and documentation are shared equally across all deliverables:
+* **Team Projects (Quiz 2 & Midterm):** Shared equally (33.33% each) among all three members.
+* **Quiz 1:** Individual project authored by **Rinaltra Nabasa S** (`5025251024`).
 
-| Team Member Name | Student ID (NRP) | Contribution | Primary Assigned Engineering Deliverables |
+| Team Member Name | Student ID (NRP) | Contribution (Team Projects) | Primary Assigned Engineering Deliverables |
 |---|---|:---:|---|
-| **Rinaltra Nabasa S** | `5025251024` | **33.33%** | • **Frontend Architecture & Web Animations**<br>• Quiz 2 Wild Pill Hero (`index.jsp` & `wild-hero.html`), SVG archival curves, JSP views<br>• Midterm Responsive Blade UI (1440px / 820px / 375px) & Three.js 3D Earth hero<br>• Vacancy Discovery (Feature 1) and Bookmarking Watchlist (Feature 6) |
-| **Haidar Abiyyu at Taqy** | `5025521121` | **33.33%** | • **Relational Database & Backend Engineering**<br>• Quiz 2 9-table 3NF CDM/PDM, Dual SQLite/MySQL `DatabaseManager`, `DataStore` DAO, Jakarta Servlets<br>• Midterm Relational schema migrations, 100-gig seeder, Eloquent ORM routing<br>• Midterm Vacancy CRUD (Feature 2) & PDF Application submission (Feature 3) |
-| **Fakhrian Elanta** | `5025251019` | **33.33%** | • **Quality Control, Telemetry & Documentation**<br>• Quiz 2 JUnit 5 integration suite (`10/10` passing), QA Inspector (`/debug/accounts`), Quiz 2 Report<br>• Midterm PHPUnit automated test suite (`16/16` passing, 66 assertions)<br>• Developer Accounts Monitor (`/debug/accounts`) & Midterm Technical Report |
+| **Rinaltra Nabasa S** | `5025251024` | **33.33%** | • **Individual Deliverable:** Author of **Quiz 1** (Personal Portfolio & Hometown website)<br>• **Quiz 2:** Wild Pill Hero (`index.jsp` & `wild-hero.html`), SVG archival curves, responsive JSP views<br>• **Midterm:** Responsive Blade UI (1440px / 820px / 375px), Three.js 3D Earth hero, Discovery (F1) & Bookmarking (F6) |
+| **Haidar Abiyyu at Taqy** | `5025521121` | **33.33%** | • **Quiz 2:** 9-table 3NF CDM/PDM schema, Dual SQLite/MySQL `DatabaseManager`, `DataStore` DAO, Jakarta Servlets<br>• **Midterm:** Relational schema migrations, 100-gig seeder, Eloquent ORM routing, Vacancy CRUD (F2) & Application submission (F3) |
+| **Fakhrian Elanta** | `5025251019` | **33.33%** | • **Quiz 2:** Quality Control, JUnit 5 integration suite (`10/10` passing), QA Inspector (`/debug/accounts`), Quiz 2 Report<br>• **Midterm:** PHPUnit automated test suite (`16/16` passing, 66 assertions), QA Accounts Monitor (`/debug/accounts`), Midterm Report |
 
 ---
 
 ## Coursework Projects Directory
 
-| Milestone | Directory | Technology Stack | Core Highlights |
-|---|---|---|---|
-| **Quiz 2** | [`quiz2/`](./quiz2) | Java 21 · Jakarta Server Pages 3.1 · Jakarta Servlets 6.0 · Embedded Tomcat 10.1 · SQLite / MySQL | **Wild Indonesia** — Tourist Guide & Expedition Rental Platform with 8 CRUD modules, Wild Pill 60fps hero, 9-table 3NF schema, JUnit 5 integration tests (`10/10`). |
-| **Midterm** | [`Midterm/`](./Midterm) | Laravel 11 · PHP 8.3 · Blade UI · SQLite / MySQL · Three.js WebGL | **Ascend** — Student Freelance Job Board & Candidate Application Portal with 8 core business features, 4-stage recruitment pipeline, 100 seeded gigs, and PHPUnit suite (`16/16`). |
-| **Quiz 1** | [`quiz1/`](./quiz1) | HTML5 · CSS3 · Vanilla JavaScript · Responsive Media | Personal Portfolio, Surabaya Hometown, Culinary, and Tourist attraction discovery website. |
+| Milestone | Project Type | Directory | Technology Stack | Core Highlights |
+|---|---|---|---|---|
+| **Quiz 2** | **Team (33.33% each)** | [`quiz2/`](./quiz2) | Java 21 · Jakarta Server Pages 3.1 · Jakarta Servlets 6.0 · Embedded Tomcat 10.1 · SQLite / MySQL | **Wild Indonesia** — Tourist Guide & Expedition Rental Platform with 8 CRUD modules, Wild Pill 60fps hero, 9-table 3NF schema, JUnit 5 integration tests (`10/10`). |
+| **Midterm** | **Team (33.33% each)** | [`Midterm/`](./Midterm) | Laravel 11 · PHP 8.3 · Blade UI · SQLite / MySQL · Three.js WebGL | **Ascend** — Student Freelance Job Board & Candidate Application Portal with 8 core business features, 4-stage recruitment pipeline, 100 seeded gigs, and PHPUnit suite (`16/16`). |
+| **Quiz 1** | **Individual** | [`quiz1/`](./quiz1) | HTML5 · CSS3 · Vanilla JavaScript · Responsive Media | **Personal Portfolio & Hometown Guide** — Authored by Rinaltra Nabasa S (`5025251024`). Responsive portfolio, Surabaya hometown, culinary landmarks, and tourist attractions with video integration. |
 
 ---
 
@@ -266,10 +267,15 @@ A quick overview of the Midterm platform:
 
 # Part 3: Quiz 1 — Personal Portfolio & Hometown Website
 
+> **Author (Individual Project):** Rinaltra Nabasa S (`5025251024`)  
 > **Directory:** [`quiz1/`](./quiz1)  
 > **Stack:** HTML5 · CSS3 · Vanilla JavaScript · Responsive Media  
 
-Quiz 1 features a personal developer portfolio, Surabaya hometown historical landmarks, culinary showcases (Rawon, Lontong Balap, Tahu Tek, Sate Klopo), and tourist attractions with video integration.
+Quiz 1 is an individual assignment focusing on responsive web fundamentals without third-party frameworks:
+* **Personal Developer Portfolio (`index.html`, `profile.html`):** Biography, skill badges, and personal project showcases.
+* **Hometown Discovery (`hometown.html`):** History and iconic landmarks of Surabaya, East Java.
+* **Culinary Showcase (`food.html`):** Famous traditional dishes including Rawon, Lontong Balap, Tahu Tek, and Sate Klopo.
+* **Tourism & Videography (`tourist.html`):** City exploration highlights with embedded cinematography.
 
 ---
 
