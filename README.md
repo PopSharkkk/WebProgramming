@@ -1,76 +1,127 @@
-# Ascend — Student Freelance Job Board & Candidate Application Portal
+# EF234301 Web Programming (Class D) — Coursework Repository
 
+[![Java 21](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org)
+[![Jakarta EE 10](https://img.shields.io/badge/Jakarta%20EE-10-F05138?style=for-the-badge&logo=eclipse-ide&logoColor=white)](https://jakarta.ee)
 [![Laravel 11](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP 8.3](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
-[![PHPUnit 100%](https://img.shields.io/badge/Tests-16%20Passed%20(66%20Assertions)-10B981?style=for-the-badge&logo=checkmarx&logoColor=white)](https://phpunit.de)
+[![JUnit 5 Passed](https://img.shields.io/badge/JUnit%205-10%2F10%20Passing-25A162?style=for-the-badge&logo=junit5&logoColor=white)](https://junit.org)
+[![PHPUnit Passed](https://img.shields.io/badge/PHPUnit-16%2F16%20Passing-10B981?style=for-the-badge&logo=checkmarx&logoColor=white)](https://phpunit.de)
 [![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](LICENSE)
 
-> **Course:** EF234301 Web Programming (Class D) — Midterm Examination Project  
+> **Course:** EF234301 Web Programming (Class D)  
 > **Institution:** Department of Informatics, Faculty of Intelligent Electrical and Informatics Technology (FTEIC), Institut Teknologi Sepuluh Nopember (ITS), Surabaya  
 > **Academic Year:** Semester Odd 2026/2027  
-> **Instructors:** MM Irfan Subakti  
+> **Instructor:** MM Irfan Subakti  
 > **Teaching Assistants:** Callista Fidelya Roba Gultom, Kevin Andreas  
 
 ---
 
-## Live Verification & Production References
+## Team Members & Equal Work Distribution (33.33% Each)
 
-* **Production Deployed Web App:** [https://midterm-webpro.wasmer.app/](https://midterm-webpro.wasmer.app/)
-* **GitHub Repository:** [https://github.com/PopSharkkk/WebProgramming](https://github.com/PopSharkkk/WebProgramming)
-
----
-
-## Team Members & Equal Work Distribution (100/3% Each)
-
-The project workload and engineering responsibilities were divided equally among all three team members (33.33% each):
+The coursework engineering, architectural design, database modeling, and documentation are shared equally across all deliverables:
 
 | Team Member Name | Student ID (NRP) | Contribution | Primary Assigned Engineering Deliverables |
 |---|---|:---:|---|
-| **Rinaltra Nabasa S** | `5025251024` | **33.33%** | • **Web Design & Frontend Engineering Architecture**<br>• Responsive Blade UI system across desktop (1440px), tablet (820px), and mobile (375px)<br>• Interactive Three.js WebGL 3D Earth hero canvas & custom styling<br>• Client-side interactions, vacancy card layouts, and status badge styling<br>• Feature 1 (Vacancy Discovery & Filtering UI) and Feature 6 (Bookmarking Watchlist UI) |
-| **Fakhrian Elanta** | `5025251019` | **33.33%** | • **Debugging, Quality Control (QC) & Report Documentation**<br>• Automated test suite engineering (PHPUnit with 16 feature tests and 66 passing assertions)<br>• Developer & QA Account Tracking Monitor (`/debug/accounts`) & Artisan CLI command (`php artisan accounts:list`)<br>• Authorization security verification (RBAC, ownership policies, CSRF)<br>• Feature 4 (Applicant Review Workflow), Feature 5 (Tracking Dashboard), Feature 7 (Withdrawal)<br>• Authoring the comprehensive technical Midterm Project Report |
-| **Haidar Abiyyu at Taqy** | `5025521121` | **33.33%** | • **Database Architecture & Backend Development**<br>• Conceptual (CDM) and Physical (PDM) data modeling<br>• Relational database schema migrations & 5 cascading foreign key constraints (`ON DELETE CASCADE`)<br>• Comprehensive 100 Job Gigs database seeder with realistic test datasets across 10 categories<br>• Backend controllers, Eloquent ORM relationships, query scopes, and RESTful routing<br>• Feature 2 (Vacancy CRUD & Toggle) and Feature 3 (Application submission & PDF upload) |
+| **Rinaltra Nabasa S** | `5025251024` | **33.33%** | • **Frontend Architecture & Web Animations**<br>• Quiz 2 Wild Pill Hero (`index.jsp` & `wild-hero.html`), SVG archival curves, JSP views<br>• Midterm Responsive Blade UI (1440px / 820px / 375px) & Three.js 3D Earth hero<br>• Vacancy Discovery (Feature 1) and Bookmarking Watchlist (Feature 6) |
+| **Haidar Abiyyu at Taqy** | `5025521121` | **33.33%** | • **Relational Database & Backend Engineering**<br>• Quiz 2 9-table 3NF CDM/PDM, Dual SQLite/MySQL `DatabaseManager`, `DataStore` DAO, Jakarta Servlets<br>• Midterm Relational schema migrations, 100-gig seeder, Eloquent ORM routing<br>• Midterm Vacancy CRUD (Feature 2) & PDF Application submission (Feature 3) |
+| **Fakhrian Elanta** | `5025251019` | **33.33%** | • **Quality Control, Telemetry & Documentation**<br>• Quiz 2 JUnit 5 integration suite (`10/10` passing), QA Inspector (`/debug/accounts`), Quiz 2 Report<br>• Midterm PHPUnit automated test suite (`16/16` passing, 66 assertions)<br>• Developer Accounts Monitor (`/debug/accounts`) & Midterm Technical Report |
 
 ---
 
-## Quick Start & Local Setup
+## Coursework Projects Directory
 
-### 1. Prerequisites
-* **PHP:** >= 8.2 with extensions: `pdo`, `pdo_sqlite` (or `pdo_mysql`), `mbstring`, `fileinfo`, `openssl`, `curl`.
-* **Composer:** >= 2.x
-* **Node.js & npm** (optional for asset rebuilds)
+| Milestone | Directory | Technology Stack | Core Highlights |
+|---|---|---|---|
+| **Quiz 2** | [`quiz2/`](./quiz2) | Java 21 · Jakarta Server Pages 3.1 · Jakarta Servlets 6.0 · Embedded Tomcat 10.1 · SQLite / MySQL | **Wild Indonesia** — Tourist Guide & Expedition Rental Platform with 8 CRUD modules, Wild Pill 60fps hero, 9-table 3NF schema, JUnit 5 integration tests (`10/10`). |
+| **Midterm** | [`Midterm/`](./Midterm) | Laravel 11 · PHP 8.3 · Blade UI · SQLite / MySQL · Three.js WebGL | **Ascend** — Student Freelance Job Board & Candidate Application Portal with 8 core business features, 4-stage recruitment pipeline, 100 seeded gigs, and PHPUnit suite (`16/16`). |
+| **Quiz 1** | [`quiz1/`](./quiz1) | HTML5 · CSS3 · Vanilla JavaScript · Responsive Media | Personal Portfolio, Surabaya Hometown, Culinary, and Tourist attraction discovery website. |
 
-### 2. Installation Steps
+---
+
+# Part 1: Quiz 2 — Wild Indonesia
+
+> **JSP Tourist Guide & Expedition Rental Platform**  
+> **Directory:** [`quiz2/`](./quiz2)  
+> **Stack:** Java 21 · Jakarta Server Pages (JSP 3.1) · Jakarta Servlets 6.0 · JSTL 3.0 · Embedded Apache Tomcat 10.1.33 · Dual SQLite / MySQL JDBC  
+
+### Quick Start (Local Development)
+
+#### Option A: One-Click Windows Launch
+Double-click `start-server.bat` inside [`quiz2/`](./quiz2). It automatically detects JDK 21, compiles if needed, initializes SQLite (`data/wild_indonesia.db`), seeds all 9 tables, and opens `http://localhost:8080`.
+
+#### Option B: Terminal / Maven Wrapper
+```powershell
+cd quiz2
+.\mvnw.cmd package -DskipTests
+java -cp "target\classes;target\dependency\*" com.wildindonesia.AppServer
+```
+
+To run the automated JUnit 5 integration tests:
+```powershell
+cd quiz2
+.\mvnw.cmd test
+```
+
+### Implemented Features (Wild Hero + 8 CRUD Modules)
+
+* **Landing Stage (`/` & `/wild-hero.html`):** Full-screen Wild Pill Hero opening from a hairline into a looping 60fps floating-island stadium pill pushing `WI` and `LD` outward (`?rec=1` recording loop supported).
+* **01 · Destinations Guide CRUD (`/destinations`):** Filterable Indonesian landmarks (Bromo, Kawah Ijen, Borobudur, Nusa Penida, Padar, Raja Ampat) with Create, Edit, Spotlight Toggle, Detail view, and Delete.
+* **02 · Island Regions CRUD (`/regions`):** Archipelago climate zones and monsoon windows with Create, Edit, and Delete.
+* **03 · Wild Rentals Fleet CRUD (`/rentals`):** 24m wooden phinisi boats, 1982 FJ40 volcano jeeps, eco-villas, and coastal scooters with availability toggles and CRUD.
+* **04 · Certified Local Guides CRUD (`/guides`):** HPI-licensed guides searchable by specialty and languages with verification toggles and CRUD.
+* **05 · Nusantara Trip Itineraries CRUD (`/itineraries`):** Multi-day route planning with IDR budgets, route stops, and day-by-day views.
+* **06 · Rental & Guide Bookings CRUD (`/bookings`):** Server-calculated IDR totals, date/request editing, status transitions (`Pending` → `Confirmed` → `Completed` / `Cancelled`), and cancellation.
+* **07 · Traveler Field Stories CRUD (`/stories`):** Destination reviews, ratings (1–5), photography, and practical travel tips.
+* **08 · Personal Bucket-List CRUD (`/saved`):** 1-click destination bookmarking, priority tiers, target travel season, and planning notes.
+* **QA & Schema Telemetry:** Registered Accounts Inspector (`/debug/accounts`) with 1-click role switcher and live CDM & PDM Diagrams (`/database-diagrams`).
+
+### Demo Credentials (Password: `password`)
+* **Curator (Admin):** `curator@wildindonesia.id`
+* **Traveler:** `traveler@wildindonesia.id`
+* **1-Click Session Switcher:** `http://localhost:8080/debug/accounts`
+
+### Dual Database Configuration (SQLite & MySQL)
+* **SQLite (Default):** Boots out-of-the-box with zero configuration at `data/wild_indonesia.db` (`PRAGMA foreign_keys = ON`). DDL reference: `database/schema_sqlite.sql`.
+* **MySQL 8+:** Import `database/schema_mysql.sql`, then configure environment variables:
+  ```powershell
+  $env:DB_URL = "jdbc:mysql://localhost:3306/wild_indonesia?useSSL=false&allowPublicKeyRetrieval=true"
+  $env:DB_USER = "root"
+  $env:DB_PASS = "your_password"
+  java -cp "target\classes;target\dependency\*" com.wildindonesia.AppServer
+  ```
+
+---
+
+# Part 2: Midterm Project — Ascend
+
+> **Student Freelance Job Board & Candidate Application Portal**  
+> **Directory:** [`Midterm/`](./Midterm)  
+> **Live Deployed Web App:** [https://midterm-webpro.wasmer.app/](https://midterm-webpro.wasmer.app/)  
+> **Stack:** Laravel 11 · PHP 8.3 · Blade UI · Tailwind CSS · SQLite / MySQL · PHPUnit 11  
+
+### Quick Start & Local Setup
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/PopSharkkk/WebProgramming.git
-cd WebProgramming/Midterm
+cd Midterm
 
-# 2. Install PHP backend dependencies
+# 1. Install PHP dependencies
 composer install
 
-# 3. Set up the environment configuration
+# 2. Configure environment
 cp .env.example .env
 php artisan key:generate
 
-# 4. Initialize SQLite database
+# 3. Initialize SQLite & seed with 100 gigs & 15 test accounts
 touch database/database.sqlite
-
-# 5. Run migrations and seed with 100 gigs & 15 test accounts
 php artisan migrate:fresh --seed
-
-# 6. Create symbolic link for uploaded PDF CVs and company logos
 php artisan storage:link
 
-# 7. Start the local development server
+# 4. Start local development server
 php artisan serve
 ```
-
 Visit the application at: `http://127.0.0.1:8000`
 
----
-
-## ⚡ Quick Test Credentials (Password: `password` for all accounts)
+### ⚡ Quick Test Credentials (Password: `password` for all accounts)
 
 | Role | Account Email | Name / Company | Pre-loaded Data |
 |---|---|---|---|
@@ -85,9 +136,7 @@ Visit the application at: `http://127.0.0.1:8000`
 
 ---
 
-## Platform Features Overview
-
-The platform implements **8 core business features** conforming strictly to the Midterm Examination specification, plus authentication and bonus technical capabilities:
+### Platform Features Overview
 
 ```
 Ascend Architecture
@@ -115,228 +164,7 @@ Ascend Architecture
 
 ---
 
-## Detailed Feature Walkthrough
-
-### Feature 1: Multi-Criteria Job Discovery & Real-Time Filter Engine
-* **Endpoint:** `GET /jobs`
-* **Controller:** `JobBoardController@index`
-* **Blade View:** `resources/views/jobs/index.blade.php`
-* **Capabilities:**
-  * **Keyword Search:** Case-insensitive search across gig titles, requirements, description text, and employer company names using `JobPosting::scopeFilter()`.
-  * **Work Mode Filtering:** Dropdown selection for `Remote`, `On-site`, and `Hybrid` positions.
-  * **Budget Range Sliders:** Filter vacancies by minimum stipend and maximum stipend (`min_budget` and `max_budget`).
-  * **Sorting:** Four sorting modes: Latest First, Stipend: High to Low, Stipend: Low to High, and Deadline Ascending.
-
-### Feature 2: Employer Job Vacancy CRUD & Active/Closed Lifecycle Toggle
-* **Endpoints:** `GET /employer/jobs`, `POST /employer/jobs`, `GET /employer/jobs/{id}/edit`, `PUT /employer/jobs/{id}`, `DELETE /employer/jobs/{id}`, `PATCH /employer/jobs/{id}/toggle-status`
-* **Controller:** `JobPostingController`
-* **FormRequest:** `StoreJobPostingRequest`
-* **Capabilities:**
-  * Full CRUD lifecycle management for employers.
-  * **Instant Status Toggle:** With one click, an employer can toggle a gig between `Active (Open)` and `Closed (Archived)` via `PATCH /employer/jobs/{id}/toggle-status` without deleting candidate application records.
-  * **Ownership Authorization:** Strictly enforces that employers can only edit or delete vacancies that belong to their own organization (`authorizeOwner()`).
-
-### Feature 3: Candidate Application Submission with Binary PDF CV Upload
-* **Endpoints:** `GET /jobs/{id}`, `POST /jobs/{id}/apply`
-* **Controller:** `JobApplicationController@store`
-* **FormRequest:** `ApplyJobRequest`
-* **Capabilities:**
-  * Students submit formal proposals containing a proposal pitch letter, requested stipend amount, estimated completion time in days, and an optional portfolio link.
-  * **Binary PDF CV Upload:** Validates uploaded resume files using `mimes:pdf|max:5120` (PDF only, up to 5 MB) and stores them securely under `storage/app/public/resumes`.
-  * **Duplicate Prevention:** Checks the database to prevent candidates from submitting multiple applications to the same gig.
-  * **Self-Application Guard:** Blocks employers from applying to their own job postings.
-
-### Feature 4: Employer Applicant Review Dashboard & 4-Stage Workflow Progression
-* **Endpoints:** `GET /employer/applications`, `PATCH /employer/applications/{id}/status`
-* **Controller:** `JobApplicationController@employerReview`, `updateStatus`
-* **Blade View:** `resources/views/employer/applications/index.blade.php`
-* **Capabilities:**
-  * Employers view all incoming proposals organized by gig vacancy.
-  * Filter applications by gig or recruitment stage.
-  * View proposal pitch text, proposed rate, and estimated delivery timeline.
-  * Download candidate PDF resumes directly from the browser.
-  * Advance candidates through a structured 4-stage recruitment pipeline:
-    `Pending` ➔ `Reviewed` ➔ `Accepted` or `Rejected`.
-
-### Feature 5: Freelancer Real-Time Application Tracking Dashboard
-* **Endpoint:** `GET /my-applications`
-* **Controller:** `JobApplicationController@myApplications`
-* **Blade View:** `resources/views/freelancer/applications/index.blade.php`
-* **Capabilities:**
-  * Live dashboard for logged-in students tracking all submitted pitches.
-  * Displays company logo/name, submitted stipend rate, and submission date.
-  * Visual color-coded status badges: `Pending` (Amber), `Reviewed` (Blue), `Accepted` (Green), and `Rejected` (Red).
-
-### Feature 6: One-Click Job Bookmarking & Personal Watchlist
-* **Endpoints:** `POST /jobs/{id}/bookmark`, `GET /saved-jobs`
-* **Controller:** `BookmarkController@toggle`, `index`
-* **Blade View:** `resources/views/bookmarks/index.blade.php`
-* **Capabilities:**
-  * Freelancers can bookmark any active gig directly from search cards or gig detail views.
-  * Backed by a relational pivot table with a composite unique constraint `(user_id, job_id)` preventing duplicate records.
-  * Dedicated `/saved-jobs` watchlist view for reviewing bookmarked gigs before applying.
-
-### Feature 7: Candidate Application Withdrawal & File Storage Cleanup
-* **Endpoint:** `DELETE /my-applications/{id}/withdraw`
-* **Controller:** `JobApplicationController@withdraw`
-* **Capabilities:**
-  * Students can withdraw pending proposals at any time.
-  * **Disk File Cleanup:** Before deleting the database record, the controller checks for an associated PDF resume file on disk and removes it via `Storage::disk('public')->delete($app->cv_file)` to prevent orphaned files and storage leaks.
-
-### Feature 8: Employer Company Profile & Visual Identity Management
-* **Endpoints:** `GET /employer/profile`, `PUT /employer/profile`
-* **Controller:** `EmployerProfileController@edit`, `update`
-* **Blade View:** `resources/views/employer/profile/edit.blade.php`
-* **Capabilities:**
-  * Allows employers to edit their corporate profile, company bio, website URL, industry sector, and contact email.
-  * **Logo Image Upload:** Uploads and validates corporate logo files (`image|mimes:jpeg,png,jpg,webp|max:2048`), replacing old logo files upon update.
-  * Updates public branding across all associated job postings automatically.
-
----
-
-## Step-by-Step Tutorials
-
-### Tutorial A: Employer & Recruiter Guide (Publishing & Hiring)
-
-```
-[Register as Employer] ➔ [Complete Company Profile] ➔ [Post a Gig] ➔ [Review Applications] ➔ [Accept Candidate]
-```
-
-#### Step 1: Onboard as an Employer
-1. Navigate to `/register` or click **"Get Started"** in the top navigation.
-2. Enter your Name, Email, and Password.
-3. Select **"Employer (Hiring for Business / Project)"** from the role selector.
-4. Enter your Company Name (e.g. *Nexus Creative Studio*) and Industry (e.g. *UI/UX & Web Development*).
-5. Click **"Create Account"**. You will be automatically redirected to your Employer Dashboard.
-
-#### Step 2: Configure Company Profile & Logo
-1. In the navigation bar, click **"Company Profile"** (`/employer/profile`).
-2. Add your company website (e.g. `https://nexus.io`), bio description, and social media links.
-3. Upload a company logo image (`PNG`, `JPG`, or `WebP`, max 2 MB).
-4. Click **"Save Changes"**. Your logo will now appear on all your published vacancies.
-
-#### Step 3: Post a New Student Freelance Gig
-1. In the navigation bar, click **"My Postings"** (`/employer/jobs`).
-2. Click the **"+ Post a New Gig"** button.
-3. Fill in the vacancy parameters:
-   * **Gig Title:** e.g., *Landing Page Redesign (Figma to Tailwind CSS)*
-   * **Work Mode:** Select *Remote*, *On-site*, or *Hybrid*.
-   * **Fixed Stipend ($):** e.g., `650.00`
-   * **Application Deadline:** Select a closing date.
-   * **Required Skills:** e.g., `Figma, Tailwind CSS, Responsive Design, Git`
-   * **Project Description:** Markdown-compatible brief explaining deliverables and expectations.
-4. Click **"Publish Gig"**. Your listing is now live on the public Job Board.
-
-#### Step 4: Toggle Status (Active / Closed)
-1. On the **"My Postings"** page, find your vacancy in the list.
-2. Click the status badge (**● Active (Open)**).
-3. The gig immediately toggles to **○ Closed (Archived)**, preventing new applications while preserving historical proposal data. Click again to reopen at any time.
-
-#### Step 5: Review Candidates & Download Resumes
-1. In the navigation bar, click **"Candidates"** (`/employer/applications`).
-2. You will see a list of proposals submitted by students for your vacancies.
-3. Review the candidate's pitch motivation, proposed budget, and estimated turnaround.
-4. Click **"Download Resume (PDF)"** to inspect their uploaded CV document.
-5. In the status dropdown, choose **"Reviewed"**, **"Accepted"**, or **"Rejected"** and click **"Update Status"**. The student's tracker updates immediately!
-
----
-
-### Tutorial B: Student Freelancer Guide (Searching & Applying)
-
-```
-[Register as Freelancer] ➔ [Search & Filter Gigs] ➔ [Bookmark Gigs] ➔ [Submit Proposal with PDF] ➔ [Track Status]
-```
-
-#### Step 1: Onboard as a Student Candidate
-1. Navigate to `/register`.
-2. Enter your Name, Email, Password, and select **"Freelancer (Looking for Gigs & Tutoring)"**.
-3. Click **"Create Account"**.
-
-#### Step 2: Discover Gigs with Real-Time Filters
-1. Click **"Job Board"** (`/jobs`) in the navigation bar.
-2. Use the filter bar to customize your search:
-   * Type keywords into the search box (e.g. *Python*, *Figma*, *Tutor*).
-   * Filter by work mode (e.g. *Remote*).
-   * Enter a stipend budget range (e.g. Min: `$300`, Max: `$1000`).
-   * Sort by *Highest Stipend* or *Closing Soon*.
-3. Click **"Apply Filter"**.
-
-#### Step 3: Bookmark Gigs for Later
-1. On any vacancy card, click the **"★ Save"** button.
-2. The gig is added to your personal watchlist.
-3. Access all saved vacancies at any time via **"Watchlist"** (`/saved-jobs`) in the top navigation.
-
-#### Step 4: Submit a Proposal with PDF CV
-1. Click **"View & Pitch"** on your chosen vacancy card.
-2. Scroll to the **"Submit Your Pitch & Proposal"** card at the bottom of the page.
-3. Enter your:
-   * **Proposed Stipend Rate ($):** Your proposed price.
-   * **Estimated Turnaround (Days):** e.g., `7`.
-   * **Portfolio URL:** e.g., `https://github.com/yourusername`.
-   * **Pitch & Motivation:** Explain your technical approach and qualifications.
-   * **Resume / CV (PDF Only):** Click **"Browse"** and select a valid `.pdf` document (max 5 MB).
-4. Click **"Submit Proposal"**.
-
-#### Step 5: Track Application Progress & Withdraw
-1. In the navigation bar, click **"Status Tracker"** (`/my-applications`).
-2. View your real-time status badges:
-   * **Pending:** Awaiting employer review.
-   * **Reviewed:** Under active consideration.
-   * **Accepted:** Congratulations! Proposal accepted by the client.
-   * **Rejected:** Not selected.
-3. If you submitted by mistake or accepted another offer, click **"Withdraw Application"**. The system retracts your pitch and automatically deletes your uploaded PDF resume from the server.
-
----
-
-### Tutorial C: Quality Control & Debugger Guide (for Fakhrian / Evaluators)
-
-Ascend includes a specialized debugging and quality control subsystem built specifically for evaluators and test engineers.
-
-#### 1. Interactive Accounts Inspector (`/debug/accounts`)
-1. Click **"🛠 QA Accounts"** in the top navigation bar or visit [`http://127.0.0.1:8000/debug/accounts`](http://127.0.0.1:8000/debug/accounts).
-2. The page displays:
-   * **Live KPI Counters:** Total registered accounts, employers, freelancers, jobs, and applications.
-   * **Role Tabs:** Click **"Employers"** or **"Freelancers"** to filter the user list.
-   * **Live Search:** Search by name, email, or company name.
-3. **⚡ 1-Click Role Switcher (Zero Password Needed):**
-   * Find any account (e.g., `#1 Hiring Lead (Nexus Creative)` or `#11 Alex Rivera`).
-   * Click **"⚡ Switch User"**.
-   * You are instantly authenticated as that user! Test what they see, create a gig or submit an application, then switch to the counterparty in 2 seconds to complete the verification loop.
-4. **Test Account Cleanup:** Delete any newly created test accounts using the **✕** button without affecting seeded data.
-
-#### 2. Terminal Telemetry Command (`php artisan accounts:list`)
-Run from terminal or PowerShell:
-
-```bash
-# List all registered accounts in a formatted table
-php artisan accounts:list
-
-# Filter by role
-php artisan accounts:list --role=employer
-php artisan accounts:list --role=freelancer
-
-# Search by keyword
-php artisan accounts:list --search=Nexus
-
-# Set custom display limit
-php artisan accounts:list --limit=50
-```
-
-#### 3. Re-seeding the 100 Job Gigs Dataset
-To reset or re-populate the database with all 100 realistic student freelance gigs across 10 employers:
-
-```bash
-php artisan migrate:fresh --seed
-```
-
-Or trigger it remotely in a browser:
-```
-http://127.0.0.1:8000/seed-database
-```
-
----
-
-## Database Architecture & Normalization
+### Database Architecture & 3NF Schema
 
 The Ascend relational schema strictly adheres to **Third Normal Form (3NF)** with five cascading foreign key constraints (`ON DELETE CASCADE`):
 
@@ -397,25 +225,17 @@ erDiagram
     }
 ```
 
-### Relational Integrity Constraints
-1. `employers.user_id` ➔ `users.id` (`ON DELETE CASCADE`)
-2. `job_postings.employer_id` ➔ `employers.id` (`ON DELETE CASCADE`)
-3. `job_applications.job_id` ➔ `job_postings.id` (`ON DELETE CASCADE`)
-4. `job_applications.applicant_id` ➔ `users.id` (`ON DELETE CASCADE`)
-5. `bookmarks.user_id` ➔ `users.id` & `bookmarks.job_id` ➔ `job_postings.id` (`ON DELETE CASCADE`, composite unique index on `[user_id, job_id]`).
-
 ---
 
-## Automated Verification & Test Suite
+### Automated Verification & Test Suite
 
 The project includes an automated feature test suite built with **PHPUnit 11** and Laravel TestBench:
 
 ```bash
-# Execute the automated test suite
+cd Midterm
 php artisan test
 ```
 
-### Test Suite Execution Results:
 ```text
    PASS  Tests\Feature\DebugAccountsTest
   ✓ it renders debug accounts inspector                      0.15s
@@ -439,7 +259,20 @@ php artisan test
 
 ---
 
+A quick overview of the Midterm platform:
+<img width="1917" height="1097" alt="Ascend Platform Overview" src="https://github.com/user-attachments/assets/8ed91ba1-35d0-485f-a53e-f20c3fe48979" />
 
-A quick overview of our website
-<img width="1917" height="1097" alt="image" src="https://github.com/user-attachments/assets/8ed91ba1-35d0-485f-a53e-f20c3fe48979" />
+---
 
+# Part 3: Quiz 1 — Personal Portfolio & Hometown Website
+
+> **Directory:** [`quiz1/`](./quiz1)  
+> **Stack:** HTML5 · CSS3 · Vanilla JavaScript · Responsive Media  
+
+Quiz 1 features a personal developer portfolio, Surabaya hometown historical landmarks, culinary showcases (Rawon, Lontong Balap, Tahu Tek, Sate Klopo), and tourist attractions with video integration.
+
+---
+
+## License
+
+This repository and all associated project deliverables are licensed under the [MIT License](LICENSE).
